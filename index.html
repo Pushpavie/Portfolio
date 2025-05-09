@@ -6,33 +6,46 @@
     <title>Pushpavie Krishnathasan - Portfolio</title>
     <style>
         :root {
-            --bg-color: #f5f5f7;
-            --text-color: #333;
-            --card-bg: #fff;
-            --accent-color: #0066ff;
-            --secondary-color: #6e6e73;
-            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-            --header-bg: rgba(255, 255, 255, 0.8);
-            --figma-blue: #1abcfe;
-            --figma-purple: #a259ff;
-            --figma-green: #0acf83;
-            --figma-red: #ff7262;
-            --figma-yellow: #ffa800;
+            /* Light mode colors - softer, pastel palette */
+            --bg-color: #f7f9ff;
+            --text-color: #334055;
+            --card-bg: #ffffff;
+            --accent-color: #9187d6;
+            --accent-gradient: linear-gradient(135deg, #a094e3, #5e91ff);
+            --secondary-color: #7a7b89;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.03), 0 6px 20px rgba(0, 0, 0, 0.02);
+            --header-bg: rgba(247, 249, 255, 0.9);
+            --card-border: rgba(208, 213, 221, 0.5);
+            
+            /* Figma-inspired colors - softer variants */
+            --figma-blue: #6eb5ff;
+            --figma-purple: #b19cff;
+            --figma-green: #7ad9b3;
+            --figma-red: #ff9b85;
+            --figma-yellow: #ffe37e;
             --figma-grid: rgba(0, 0, 0, 0.02);
             
-            --email-color: #1abcfe;
-            --linkedin-color: #a259ff;
-            --resume-color: #0acf83;
+            /* Contact card colors */
+            --email-color: #6eb5ff;
+            --linkedin-color: #b19cff;
+            --resume-color: #7ad9b3;
+
+            /* Animation speeds */
+            --transition-fast: 0.2s;
+            --transition-medium: 0.4s;
+            --transition-slow: 0.8s;
         }
 
         .dark-mode {
-            --bg-color: #1a1a1a;
-            --text-color: #f5f5f7;
-            --card-bg: #2c2c2e;
-            --accent-color: #0a84ff;
-            --secondary-color: #aeaeb2;
-            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            --header-bg: rgba(26, 26, 26, 0.8);
+            --bg-color: #1e2235;
+            --text-color: #e6e9ff;
+            --card-bg: #282d45;
+            --accent-color: #a48fff;
+            --accent-gradient: linear-gradient(135deg, #a48fff, #7b90ff);
+            --secondary-color: #bbb9c7;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 6px 20px rgba(0, 0, 0, 0.1);
+            --header-bg: rgba(30, 34, 53, 0.95);
+            --card-border: rgba(93, 91, 105, 0.3);
             --figma-grid: rgba(255, 255, 255, 0.02);
         }
 
@@ -47,9 +60,10 @@
             min-height: 100vh;
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: all 0.3s ease;
+            transition: background-color 0.5s ease, color 0.5s ease;
             padding-top: 80px;
             cursor: default;
+            scroll-behavior: smooth;
         }
         
         @supports (-webkit-touch-callout: none) {
@@ -63,13 +77,95 @@
             cursor: pointer;
         }
 
+        /* Animated background patterns */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.5;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(145, 135, 214, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 75% 70%, rgba(110, 181, 255, 0.05) 0%, transparent 20%);
+        }
+        
+        .dark-mode .bg-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(164, 143, 255, 0.07) 0%, transparent 25%),
+                radial-gradient(circle at 75% 70%, rgba(123, 144, 255, 0.07) 0%, transparent 25%);
+        }
+
+        .animated-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            animation: floatAnimation 15s infinite ease-in-out;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background-color: var(--figma-blue);
+            top: 20%;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background-color: var(--figma-purple);
+            bottom: -150px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+        
+        .shape-3 {
+            width: 250px;
+            height: 250px;
+            background-color: var(--figma-green);
+            top: 60%;
+            right: 20%;
+            animation-delay: -10s;
+        }
+        
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, 50px) rotate(5deg);
+            }
+            50% {
+                transform: translate(20px, 20px) rotate(0deg);
+            }
+            75% {
+                transform: translate(-30px, 30px) rotate(-5deg);
+            }
+        }
+
         .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: var(--figma-bg, var(--bg-color));
+            background-color: var(--bg-color);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -94,7 +190,10 @@
         
         .hello-world {
             font-family: 'Courier New', monospace;
-            color: var(--figma-blue);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 3.5rem;
             text-align: center;
             margin-bottom: 0.5rem;
@@ -142,10 +241,7 @@
         .loading-progress-bar {
             height: 100%;
             width: 0;
-            background: linear-gradient(90deg, 
-                var(--figma-blue),
-                var(--figma-purple),
-                var(--figma-green));
+            background: var(--accent-gradient);
             border-radius: 3px;
             animation: progress 4s ease forwards;
             animation-delay: 1.2s;
@@ -182,11 +278,15 @@
         
         .code-particle {
             position: absolute;
-            color: rgba(128, 128, 128, 0.1);
+            color: rgba(145, 135, 214, 0.15);
             font-family: 'Courier New', monospace;
             font-size: 14px;
             animation: codeRain linear infinite;
             user-select: none;
+        }
+        
+        .dark-mode .code-particle {
+            color: rgba(164, 143, 255, 0.2);
         }
         
         @keyframes codeRain {
@@ -212,10 +312,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, 
-                var(--figma-blue), 
-                var(--figma-purple), 
-                var(--figma-green));
+            background: var(--accent-gradient);
             transform-origin: left;
             transform: scaleX(0);
             z-index: 1001;
@@ -229,6 +326,7 @@
             right: 0;
             background-color: var(--header-bg);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 5%;
             display: flex;
@@ -241,7 +339,10 @@
         .logo {
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--figma-blue);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -251,9 +352,14 @@
         .logo .design-element {
             width: 24px;
             height: 24px;
-            background-color: var(--figma-blue);
+            background: var(--accent-gradient);
             border-radius: 6px;
             position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover .design-element {
+            transform: rotate(90deg);
         }
 
         .logo .design-element::before,
@@ -293,7 +399,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--figma-blue);
+            color: var(--accent-color);
         }
 
         nav ul li a::after {
@@ -303,7 +409,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--figma-blue);
+            background: var(--accent-gradient);
             transition: width 0.3s ease;
         }
 
@@ -311,6 +417,7 @@
             width: 100%;
         }
 
+        /* Light bulb toggle */
         .light-toggle-container {
             position: fixed;
             top: 80px;
@@ -402,37 +509,8 @@
             background-image: 
                 linear-gradient(to right, var(--figma-grid) 1px, transparent 1px),
                 linear-gradient(to bottom, var(--figma-grid) 1px, transparent 1px);
-            z-index: -1;
+            z-index: -3;
             overflow: hidden;
-        }
-        
-        .dark-mode .figma-grid {
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: linear-gradient(45deg, 
-                rgba(26, 188, 254, 0.05) 0%, 
-                rgba(162, 89, 255, 0.05) 25%, 
-                rgba(10, 207, 131, 0.05) 50%, 
-                rgba(255, 114, 98, 0.05) 75%, 
-                rgba(26, 188, 254, 0.05) 100%);
-            top: -25%;
-            left: -25%;
-            z-index: -1;
-            border-radius: 30%;
-            animation: rotateGradient 25s linear infinite;
-        }
-        
-        @keyframes rotateGradient {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         main {
@@ -444,17 +522,44 @@
         section {
             margin-bottom: 6rem;
             padding: 2rem;
-            border-radius: 12px;
+            border-radius: 16px;
             background-color: var(--card-bg);
             box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06), 0 8px 25px rgba(0, 0, 0, 0.03);
+        }
+        
+        .dark-mode section:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         section.active {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
         }
 
         h1, h2, h3 {
@@ -464,7 +569,7 @@
 
         h1 {
             font-size: 3rem;
-            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -473,12 +578,33 @@
 
         h2 {
             font-size: 2rem;
-            color: var(--figma-blue);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             padding-bottom: 0.5rem;
             display: inline-block;
-            margin-bottom: 2rem;
             position: relative;
-            border-bottom: 2px solid var(--figma-blue);
+            margin-bottom: 2rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gradient);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         p {
@@ -498,6 +624,39 @@
             min-height: 80vh;
             background-color: transparent;
             box-shadow: none;
+            border: none;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: linear-gradient(45deg, 
+                rgba(145, 135, 214, 0.05) 0%, 
+                rgba(94, 145, 255, 0.05) 25%, 
+                rgba(122, 217, 179, 0.05) 50%, 
+                rgba(255, 155, 133, 0.05) 75%, 
+                rgba(145, 135, 214, 0.05) 100%);
+            top: -25%;
+            left: -25%;
+            z-index: -1;
+            border-radius: 30%;
+            animation: rotateGradient 25s linear infinite;
+        }
+        
+        .dark-mode .hero::before {
+            background: linear-gradient(45deg, 
+                rgba(164, 143, 255, 0.06) 0%, 
+                rgba(123, 144, 255, 0.06) 25%, 
+                rgba(122, 217, 179, 0.06) 50%, 
+                rgba(255, 155, 133, 0.06) 75%, 
+                rgba(164, 143, 255, 0.06) 100%);
+        }
+        
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .name-container {
@@ -514,7 +673,7 @@
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 0.05em;
-            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -527,7 +686,7 @@
             left: 20px;
             width: 80px;
             height: 6px;
-            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
+            background: var(--accent-gradient);
             animation: highlight-pulse 3s ease-in-out infinite;
             border-radius: 3px;
         }
@@ -554,11 +713,6 @@
             animation-delay: 0.5s;
             opacity: 0;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
 
         .btn {
             padding: 1rem 2rem;
@@ -577,26 +731,52 @@
         }
 
         .btn-primary {
-            background-color: var(--figma-blue);
+            background: var(--accent-gradient);
             color: white;
+            box-shadow: 0 4px 15px rgba(145, 135, 214, 0.15);
+        }
+        
+        .dark-mode .btn-primary {
+            box-shadow: 0 4px 15px rgba(164, 143, 255, 0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(26, 188, 254, 0.3);
+            box-shadow: 0 10px 20px rgba(145, 135, 214, 0.2);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--figma-blue);
-            border: 2px solid var(--figma-blue);
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(145, 135, 214, 0.08);
         }
 
         .btn-secondary:hover {
-            background-color: var(--figma-blue);
+            background: var(--accent-gradient);
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(26, 188, 254, 0.3);
+            box-shadow: 0 10px 20px rgba(145, 135, 214, 0.2);
+            border-color: transparent;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0), 
+                rgba(255, 255, 255, 0.2), 
+                rgba(255, 255, 255, 0));
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
 
         .projects-grid {
@@ -611,18 +791,22 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             z-index: 1;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--card-border);
             height: 100%;
             padding-bottom: 1rem;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
             z-index: 2;
+        }
+        
+        .dark-mode .project-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
         }
 
         .card-color-bar {
@@ -632,19 +816,30 @@
             overflow: hidden;
         }
 
-        .color-1 { background-color: var(--figma-purple); }
-        .color-2 { background-color: var(--figma-blue); }
-        .color-3 { background-color: var(--figma-green); }
-        .color-4 { background-color: var(--figma-red); }
-        .color-5 { background-color: var(--figma-yellow); }
-        .color-6 { background-color: var(--figma-blue); }
+        .color-1 { 
+            background: linear-gradient(90deg, var(--figma-purple), #cbb5ff); 
+        }
+        .color-2 { 
+            background: linear-gradient(90deg, var(--figma-blue), #a8d7ff); 
+        }
+        .color-3 { 
+            background: linear-gradient(90deg, var(--figma-green), #a8f0d0); 
+        }
+        .color-4 { 
+            background: linear-gradient(90deg, var(--figma-red), #ffc5b7); 
+        }
+        .color-5 { 
+            background: linear-gradient(90deg, var(--figma-yellow), #fff0b8); 
+        }
+        .color-6 { 
+            background: linear-gradient(90deg, var(--figma-blue), #b5f2ea); 
+        }
 
         .project-content {
             padding: 1.5rem;
         }
 
         .project-card h3 {
-            color: var(--figma-blue);
             margin-bottom: 0.75rem;
             transition: all 0.3s ease;
         }
@@ -657,8 +852,8 @@
         }
 
         .tech-tag {
-            background-color: rgba(26, 188, 254, 0.1);
-            color: var(--figma-blue);
+            background-color: rgba(145, 135, 214, 0.1);
+            color: var(--accent-color);
             padding: 0.4rem 0.8rem;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -666,8 +861,16 @@
             transition: all 0.3s ease;
         }
         
+        .dark-mode .tech-tag {
+            background-color: rgba(164, 143, 255, 0.12);
+        }
+        
         .project-card:hover .tech-tag {
-            background-color: rgba(26, 188, 254, 0.2);
+            background-color: rgba(145, 135, 214, 0.15);
+        }
+        
+        .dark-mode .project-card:hover .tech-tag {
+            background-color: rgba(164, 143, 255, 0.18);
         }
 
         /* View All Projects button */
@@ -696,14 +899,14 @@
         .timeline {
             position: relative;
             margin-top: 2rem;
-            padding-left: 2rem;
+            padding-left: 2.5rem;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
             width: 2px;
-            background-color: var(--figma-blue);
+            background: var(--accent-gradient);
             top: 0;
             bottom: 0;
             left: 0;
@@ -713,17 +916,28 @@
             margin-bottom: 2.5rem;
             padding-left: 2rem;
             position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            width: 15px;
-            height: 15px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-            background-color: var(--figma-blue);
-            left: -8.5px;
+            background: var(--accent-gradient);
+            left: -9px;
             top: 5px;
+            box-shadow: 0 0 0 6px rgba(145, 135, 214, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .timeline-item:hover::before {
+            box-shadow: 0 0 0 8px rgba(145, 135, 214, 0.15);
         }
 
         .timeline-item h3 {
@@ -749,17 +963,39 @@
             border-radius: 12px;
             padding: 2rem;
             box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--card-border);
             height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .skill-category:hover::before {
+            opacity: 1;
         }
 
         .skill-category:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
+        }
+        
+        .dark-mode .skill-category:hover {
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
         }
 
         .skill-category h3 {
-            color: var(--figma-blue);
             margin-bottom: 1.5rem;
         }
 
@@ -773,6 +1009,11 @@
             align-items: center;
             padding-left: 1.5rem;
             position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-list li:hover {
+            transform: translateX(5px);
         }
 
         .skill-list li::before {
@@ -784,7 +1025,13 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: var(--figma-blue);
+            background: var(--accent-gradient);
+            box-shadow: 0 0 0 4px rgba(145, 135, 214, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .skill-list li:hover::before {
+            box-shadow: 0 0 0 4px rgba(145, 135, 214, 0.15);
         }
 
         .contact-cards {
@@ -800,17 +1047,17 @@
             min-width: 300px;
             max-width: 350px;
             background-color: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 2.5rem;
             box-shadow: var(--card-shadow);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--card-border);
         }
 
         .contact-card::before {
@@ -823,43 +1070,67 @@
         }
 
         .contact-card:nth-child(1)::before {
-            background-color: var(--email-color);
+            background: linear-gradient(90deg, var(--figma-blue), #a8d7ff);
         }
 
         .contact-card:nth-child(2)::before {
-            background-color: var(--linkedin-color);
+            background: linear-gradient(90deg, var(--figma-purple), #cbb5ff);
         }
 
         .contact-card:nth-child(3)::before {
-            background-color: var(--resume-color);
+            background: linear-gradient(90deg, var(--figma-green), #a8f0d0);
         }
 
         .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .dark-mode .contact-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
 
         .contact-card .icon {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             margin-bottom: 1.5rem;
             fill: none;
             stroke: currentColor;
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
+            transition: transform 0.5s ease;
+        }
+        
+        .contact-card:hover .icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .contact-card:nth-child(1) .icon {
             color: var(--email-color);
+            filter: drop-shadow(0 4px 6px rgba(110, 181, 255, 0.15));
         }
         
         .contact-card:nth-child(2) .icon {
             color: var(--linkedin-color);
+            filter: drop-shadow(0 4px 6px rgba(177, 156, 255, 0.15));
         }
         
         .contact-card:nth-child(3) .icon {
             color: var(--resume-color);
+            filter: drop-shadow(0 4px 6px rgba(122, 217, 179, 0.15));
+        }
+        
+        .dark-mode .contact-card:nth-child(1) .icon {
+            filter: drop-shadow(0 4px 6px rgba(110, 181, 255, 0.25));
+        }
+        
+        .dark-mode .contact-card:nth-child(2) .icon {
+            filter: drop-shadow(0 4px 6px rgba(177, 156, 255, 0.25));
+        }
+        
+        .dark-mode .contact-card:nth-child(3) .icon {
+            filter: drop-shadow(0 4px 6px rgba(122, 217, 179, 0.25));
         }
 
         .contact-card h3 {
@@ -878,17 +1149,33 @@
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
         }
 
-        .contact-card a.email-link:hover {
-            text-decoration: underline;
+        .contact-card a.email-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--email-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card a.email-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
 
         .action-button {
             display: inline-block;
             padding: 1rem 1.5rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 12px;
             text-decoration: none;
             text-align: center;
             transition: all 0.3s ease;
@@ -900,6 +1187,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            overflow: hidden;
         }
         
         .action-button:hover {
@@ -907,29 +1195,51 @@
         }
         
         .action-button svg {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             transition: transform 0.3s ease;
+            z-index: 2;
         }
         
         .action-button:hover svg {
             transform: translateY(-2px);
         }
         
+        .action-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0), 
+                rgba(255, 255, 255, 0.2), 
+                rgba(255, 255, 255, 0));
+            transition: left 0.7s ease;
+            z-index: 1;
+        }
+        
+        .action-button:hover::before {
+            left: 100%;
+        }
+        
         .linkedin-button {
-            background-color: var(--linkedin-color);
+            background: linear-gradient(90deg, var(--figma-purple), #cbb5ff);
+            box-shadow: 0 4px 15px rgba(177, 156, 255, 0.2);
         }
         
         .linkedin-button:hover {
-            box-shadow: 0 10px 20px rgba(162, 89, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(177, 156, 255, 0.3);
         }
         
         .resume-button {
-            background-color: var(--resume-color);
+            background: linear-gradient(90deg, var(--figma-green), #a8f0d0);
+            box-shadow: 0 4px 15px rgba(122, 217, 179, 0.2);
         }
         
         .resume-button:hover {
-            box-shadow: 0 10px 20px rgba(10, 207, 131, 0.3);
+            box-shadow: 0 10px 20px rgba(122, 217, 179, 0.3);
         }
 
         #cv-confirmation-message {
@@ -946,48 +1256,50 @@
             text-align: center;
             margin-top: 4rem;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            border-top: 1px solid var(--card-border);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
         }
 
         footer p {
             color: var(--secondary-color);
             margin-bottom: 0;
         }
-
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-            z-index: 1001;
-        }
         
-        .mobile-menu-toggle span {
-            display: block;
-            height: 2px;
+        .footer-wave {
+            position: absolute;
+            top: -70px;
+            left: 0;
             width: 100%;
-            background-color: var(--text-color);
-            transition: all 0.3s ease;
+            height: 70px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%239187d6'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%239187d6'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%239187d6'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            opacity: 0.1;
         }
         
-        .mobile-menu-active .mobile-menu-toggle span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-        
-        .mobile-menu-active .mobile-menu-toggle span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .mobile-menu-active .mobile-menu-toggle span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
+        .dark-mode .footer-wave {
+            opacity: 0.05;
         }
 
         @media print {
             .light-toggle-container, 
             .figma-grid,
             .loading-screen,
-            .scroll-indicator {
+            .scroll-indicator,
+            .animated-shapes,
+            .bg-pattern,
+            .footer-wave {
                 display: none !important;
             }
             
@@ -1030,13 +1342,13 @@
                 border: 1px solid #eee;
             }
             
-            h1 {
+            h1, h2, h3 {
                 background: none !important;
                 -webkit-text-fill-color: black !important;
                 color: black !important;
             }
         }
-        
+
         @media (max-width: 992px) {
             .projects-grid,
             .skills-container {
@@ -1073,6 +1385,7 @@
                 z-index: 1000;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 padding: 2rem;
+                border-left: 1px solid var(--card-border);
             }
             
             .mobile-menu-active nav ul {
@@ -1085,6 +1398,7 @@
             
             .hero {
                 padding: 2rem 0;
+                min-height: auto;
             }
             
             .name-heading {
@@ -1123,6 +1437,13 @@
 
             section {
                 padding: 1.5rem;
+                margin-bottom: 3rem;
+            }
+            
+            .light-toggle-container {
+                top: auto;
+                bottom: 30px;
+                right: 20px;
             }
         }
         
@@ -1152,6 +1473,13 @@
             .mobile-theme-toggle {
                 display: block;
                 margin-top: 2rem;
+                background: var(--accent-gradient);
+                color: white;
+                border: none;
+                padding: 0.8rem;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
             }
             
             main {
@@ -1176,8 +1504,7 @@
                 font-size: 0.95rem;
             }
             
-            .project-content, 
-            .uiux-content {
+            .project-content {
                 padding: 1rem;
             }
         }
@@ -1257,17 +1584,38 @@
             }
         }
         
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-active .mobile-menu-toggle span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .mobile-menu-active .mobile-menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-active .mobile-menu-toggle span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
         .mobile-theme-toggle {
             display: none;
-            width: 100%;
-            padding: 0.8rem;
-            background-color: var(--figma-blue);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-top: 1rem;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -1287,6 +1635,12 @@
     <div class="scroll-indicator"></div>
     
     <div class="figma-grid"></div>
+    <div class="bg-pattern"></div>
+    <div class="animated-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
 
     <header>
         <a href="#" class="logo">
@@ -1301,7 +1655,7 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects"> My Projects</a></li>
+                <li><a href="#projects">My Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1331,11 +1685,16 @@
             </div>
             <p>Computer Science undergraduate driven to create practical, elegant solutions to real-world challenges. I blend analytical thinking with creative problem-solving to make a meaningful impact. My diverse project experience has strengthened my technical foundation and ability to adapt quickly. I approach each opportunity with humility, eager to contribute what I've learned while embracing new knowledge and growth in collaborative environments.</p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#projects" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    View My Work
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    Get In Touch
+                </a>
             </div>
         </section>
-
         <section id="projects">
             <h2>My Projects</h2>
             <div class="projects-grid">
@@ -1417,7 +1776,7 @@
             </div>
             <div class="view-all-projects">
                 <a href="https://www.behance.net/pushpavkrishna" class="btn btn-primary">
-                    View My Projects
+                    View All Projects
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15 3 21 3 21 9"></polyline>
@@ -1497,7 +1856,14 @@
                     </svg>
                     <h3>LinkedIn</h3>
                     <p>Connect with me professionally</p>
-                    <a href="https://www.linkedin.com/" target="_blank" class="action-button linkedin-button">View Profile</a>
+                    <a href="linkedin.com/in/pushpavie-krishnathasan-910b7a207" target="_blank" class="action-button linkedin-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        View Profile
+                    </a>
                 </div>
                 <div class="contact-card">
                     <svg class="icon" viewBox="0 0 24 24">
@@ -1523,6 +1889,7 @@
     </main>
 
     <footer>
+        <div class="footer-wave"></div>
         <p>&copy; 2025 Pushpavie Krishnathasan. All rights reserved.</p>
     </footer>
 
@@ -1545,11 +1912,17 @@
                 '$ npm install success',
                 'import random; random.choice(["amazing"])',
                 '// TODO: Impress visitors',
-                'SELECT skills FROM portfolio WHERE awesome = TRUE;'
+                'SELECT skills FROM portfolio WHERE awesome = TRUE;',
+                'console.log("Welcome!");',
+                'function createImpact() { }',
+                'class Innovation extends Future { }',
+                'const design = creativity + purpose;',
+                'async function buildTheFuture() { }',
+                'export default Success;'
             ];
             
-            // Create 30 particles with random code snippets
-            for (let i = 0; i < 30; i++) {
+            // Create 40 particles with random code snippets
+            for (let i = 0; i < 40; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'code-particle';
                 particle.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
@@ -1586,7 +1959,7 @@
                 setTimeout(function() {
                     activateSections();
                 }, 800);
-            }, 6000); // Show loading screen for 6 seconds
+            }, 5000); // Show loading screen for 5 seconds
         });
         
         // Activate sections as they come into view
@@ -1615,7 +1988,7 @@
         
         window.addEventListener('scroll', updateScrollIndicator);
         
-        // Theme toggle with pull cord functionality
+        // Light bulb toggle functionality
         const lightBulb = document.querySelector('.light-bulb');
         const cord = document.querySelector('.cord');
         const cordEnd = document.querySelector('.cord-end');
@@ -1755,6 +2128,21 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+        
+        // Add hover effect to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.03)';
+                this.style.boxShadow = document.body.classList.contains('dark-mode') 
+                    ? '0 20px 40px rgba(0, 0, 0, 0.3)' 
+                    : '0 20px 40px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
             });
         });
         
