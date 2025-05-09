@@ -6,29 +6,27 @@
     <title>Pushpavie Krishnathasan - Portfolio</title>
     <style>
         :root {
-            /* Light mode colors - softer, pastel palette */
-            --bg-color: #f7f9ff;
-            --text-color: #334055;
-            --card-bg: #ffffff;
-            --accent-color: #9187d6;
-            --accent-gradient: linear-gradient(135deg, #a094e3, #5e91ff);
-            --secondary-color: #7a7b89;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.03), 0 6px 20px rgba(0, 0, 0, 0.02);
-            --header-bg: rgba(247, 249, 255, 0.9);
-            --card-border: rgba(208, 213, 221, 0.5);
+            /* Light mode - Figma-inspired colors */
+            --bg-color: #f5f5f7;
+            --text-color: #333;
+            --card-bg: #fff;
+            --accent-color: #1abcfe;
+            --secondary-color: #6e6e73;
+            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+            --header-bg: rgba(255, 255, 255, 0.8);
             
-            /* Figma-inspired colors - softer variants */
-            --figma-blue: #6eb5ff;
-            --figma-purple: #b19cff;
-            --figma-green: #7ad9b3;
-            --figma-red: #ff9b85;
-            --figma-yellow: #ffe37e;
+            /* Figma brand colors */
+            --figma-blue: #1abcfe;
+            --figma-purple: #a259ff;
+            --figma-green: #0acf83;
+            --figma-red: #ff7262;
+            --figma-yellow: #ffa800;
             --figma-grid: rgba(0, 0, 0, 0.02);
             
             /* Contact card colors */
-            --email-color: #6eb5ff;
-            --linkedin-color: #b19cff;
-            --resume-color: #7ad9b3;
+            --email-color: #1abcfe;
+            --linkedin-color: #a259ff;
+            --resume-color: #0acf83;
 
             /* Animation speeds */
             --transition-fast: 0.2s;
@@ -37,15 +35,13 @@
         }
 
         .dark-mode {
-            --bg-color: #1e2235;
-            --text-color: #e6e9ff;
-            --card-bg: #282d45;
-            --accent-color: #a48fff;
-            --accent-gradient: linear-gradient(135deg, #a48fff, #7b90ff);
-            --secondary-color: #bbb9c7;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 6px 20px rgba(0, 0, 0, 0.1);
-            --header-bg: rgba(30, 34, 53, 0.95);
-            --card-border: rgba(93, 91, 105, 0.3);
+            --bg-color: #1a1a1a;
+            --text-color: #f5f5f7;
+            --card-bg: #2c2c2e;
+            --accent-color: #0a84ff;
+            --secondary-color: #aeaeb2;
+            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            --header-bg: rgba(26, 26, 26, 0.8);
             --figma-grid: rgba(255, 255, 255, 0.02);
         }
 
@@ -88,14 +84,14 @@
             opacity: 0.5;
             pointer-events: none;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(145, 135, 214, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 75% 70%, rgba(110, 181, 255, 0.05) 0%, transparent 20%);
+                radial-gradient(circle at 20% 30%, rgba(26, 188, 254, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 75% 70%, rgba(162, 89, 255, 0.05) 0%, transparent 20%);
         }
         
         .dark-mode .bg-pattern {
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(164, 143, 255, 0.07) 0%, transparent 25%),
-                radial-gradient(circle at 75% 70%, rgba(123, 144, 255, 0.07) 0%, transparent 25%);
+                radial-gradient(circle at 20% 30%, rgba(26, 188, 254, 0.07) 0%, transparent 25%),
+                radial-gradient(circle at 75% 70%, rgba(162, 89, 255, 0.07) 0%, transparent 25%);
         }
 
         .animated-shapes {
@@ -190,10 +186,7 @@
         
         .hello-world {
             font-family: 'Courier New', monospace;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--figma-blue);
             font-size: 3.5rem;
             text-align: center;
             margin-bottom: 0.5rem;
@@ -241,7 +234,10 @@
         .loading-progress-bar {
             height: 100%;
             width: 0;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, 
+                var(--figma-blue),
+                var(--figma-purple),
+                var(--figma-green));
             border-radius: 3px;
             animation: progress 4s ease forwards;
             animation-delay: 1.2s;
@@ -278,7 +274,7 @@
         
         .code-particle {
             position: absolute;
-            color: rgba(145, 135, 214, 0.15);
+            color: rgba(128, 128, 128, 0.1);
             font-family: 'Courier New', monospace;
             font-size: 14px;
             animation: codeRain linear infinite;
@@ -286,7 +282,7 @@
         }
         
         .dark-mode .code-particle {
-            color: rgba(164, 143, 255, 0.2);
+            color: rgba(200, 200, 200, 0.1);
         }
         
         @keyframes codeRain {
@@ -312,7 +308,10 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, 
+                var(--figma-blue), 
+                var(--figma-purple), 
+                var(--figma-green));
             transform-origin: left;
             transform: scaleX(0);
             z-index: 1001;
@@ -339,10 +338,7 @@
         .logo {
             font-weight: 700;
             font-size: 1.5rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--figma-blue);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -352,7 +348,7 @@
         .logo .design-element {
             width: 24px;
             height: 24px;
-            background: var(--accent-gradient);
+            background-color: var(--figma-blue);
             border-radius: 6px;
             position: relative;
             transition: transform 0.3s ease;
@@ -399,7 +395,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--accent-color);
+            color: var(--figma-blue);
         }
 
         nav ul li a::after {
@@ -409,7 +405,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background: var(--accent-gradient);
+            background-color: var(--figma-blue);
             transition: width 0.3s ease;
         }
 
@@ -525,7 +521,7 @@
             border-radius: 16px;
             background-color: var(--card-bg);
             box-shadow: var(--card-shadow);
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(0,0,0,0.05);
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, background-color 0.5s ease;
@@ -553,7 +549,10 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, 
+                var(--figma-blue), 
+                var(--figma-purple), 
+                var(--figma-green));
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -569,7 +568,7 @@
 
         h1 {
             font-size: 3rem;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -578,7 +577,7 @@
 
         h2 {
             font-size: 2rem;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -595,16 +594,15 @@
             bottom: 0;
             width: 60px;
             height: 3px;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, 
+                var(--figma-blue), 
+                var(--figma-purple));
             border-radius: 3px;
         }
 
         h3 {
             font-size: 1.5rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--figma-blue);
         }
 
         p {
@@ -633,11 +631,11 @@
             width: 150%;
             height: 150%;
             background: linear-gradient(45deg, 
-                rgba(145, 135, 214, 0.05) 0%, 
-                rgba(94, 145, 255, 0.05) 25%, 
-                rgba(122, 217, 179, 0.05) 50%, 
-                rgba(255, 155, 133, 0.05) 75%, 
-                rgba(145, 135, 214, 0.05) 100%);
+                rgba(26, 188, 254, 0.05) 0%, 
+                rgba(162, 89, 255, 0.05) 25%, 
+                rgba(10, 207, 131, 0.05) 50%, 
+                rgba(255, 114, 98, 0.05) 75%, 
+                rgba(26, 188, 254, 0.05) 100%);
             top: -25%;
             left: -25%;
             z-index: -1;
@@ -647,11 +645,11 @@
         
         .dark-mode .hero::before {
             background: linear-gradient(45deg, 
-                rgba(164, 143, 255, 0.06) 0%, 
-                rgba(123, 144, 255, 0.06) 25%, 
-                rgba(122, 217, 179, 0.06) 50%, 
-                rgba(255, 155, 133, 0.06) 75%, 
-                rgba(164, 143, 255, 0.06) 100%);
+                rgba(26, 188, 254, 0.06) 0%, 
+                rgba(162, 89, 255, 0.06) 25%, 
+                rgba(10, 207, 131, 0.06) 50%, 
+                rgba(255, 114, 98, 0.06) 75%, 
+                rgba(26, 188, 254, 0.06) 100%);
         }
         
         @keyframes rotateGradient {
@@ -673,7 +671,7 @@
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 0.05em;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -686,7 +684,7 @@
             left: 20px;
             width: 80px;
             height: 6px;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
             animation: highlight-pulse 3s ease-in-out infinite;
             border-radius: 3px;
         }
@@ -731,32 +729,32 @@
         }
 
         .btn-primary {
-            background: var(--accent-gradient);
+            background-color: var(--figma-blue);
             color: white;
-            box-shadow: 0 4px 15px rgba(145, 135, 214, 0.15);
+            box-shadow: 0 4px 15px rgba(26, 188, 254, 0.15);
         }
         
         .dark-mode .btn-primary {
-            box-shadow: 0 4px 15px rgba(164, 143, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(26, 188, 254, 0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(145, 135, 214, 0.2);
+            box-shadow: 0 10px 20px rgba(26, 188, 254, 0.3);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            box-shadow: 0 4px 15px rgba(145, 135, 214, 0.08);
+            color: var(--figma-blue);
+            border: 2px solid var(--figma-blue);
+            box-shadow: 0 4px 15px rgba(26, 188, 254, 0.08);
         }
 
         .btn-secondary:hover {
-            background: var(--accent-gradient);
+            background-color: var(--figma-blue);
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(145, 135, 214, 0.2);
+            box-shadow: 0 10px 20px rgba(26, 188, 254, 0.3);
             border-color: transparent;
         }
         
@@ -794,7 +792,7 @@
             transition: all 0.4s ease;
             position: relative;
             z-index: 1;
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(0,0,0,0.05);
             height: 100%;
             padding-bottom: 1rem;
         }
@@ -817,22 +815,22 @@
         }
 
         .color-1 { 
-            background: linear-gradient(90deg, var(--figma-purple), #cbb5ff); 
+            background-color: var(--figma-purple);
         }
         .color-2 { 
-            background: linear-gradient(90deg, var(--figma-blue), #a8d7ff); 
+            background-color: var(--figma-blue);
         }
         .color-3 { 
-            background: linear-gradient(90deg, var(--figma-green), #a8f0d0); 
+            background-color: var(--figma-green);
         }
         .color-4 { 
-            background: linear-gradient(90deg, var(--figma-red), #ffc5b7); 
+            background-color: var(--figma-red);
         }
         .color-5 { 
-            background: linear-gradient(90deg, var(--figma-yellow), #fff0b8); 
+            background-color: var(--figma-yellow);
         }
         .color-6 { 
-            background: linear-gradient(90deg, var(--figma-blue), #b5f2ea); 
+            background-color: var(--figma-blue);
         }
 
         .project-content {
@@ -840,6 +838,7 @@
         }
 
         .project-card h3 {
+            color: var(--figma-blue);
             margin-bottom: 0.75rem;
             transition: all 0.3s ease;
         }
@@ -852,8 +851,8 @@
         }
 
         .tech-tag {
-            background-color: rgba(145, 135, 214, 0.1);
-            color: var(--accent-color);
+            background-color: rgba(26, 188, 254, 0.1);
+            color: var(--figma-blue);
             padding: 0.4rem 0.8rem;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -862,15 +861,15 @@
         }
         
         .dark-mode .tech-tag {
-            background-color: rgba(164, 143, 255, 0.12);
+            background-color: rgba(26, 188, 254, 0.12);
         }
         
         .project-card:hover .tech-tag {
-            background-color: rgba(145, 135, 214, 0.15);
+            background-color: rgba(26, 188, 254, 0.2);
         }
         
         .dark-mode .project-card:hover .tech-tag {
-            background-color: rgba(164, 143, 255, 0.18);
+            background-color: rgba(26, 188, 254, 0.18);
         }
 
         /* View All Projects button */
@@ -906,7 +905,9 @@
             content: '';
             position: absolute;
             width: 2px;
-            background: var(--accent-gradient);
+            background: linear-gradient(to bottom, 
+                var(--figma-blue),
+                var(--figma-purple));
             top: 0;
             bottom: 0;
             left: 0;
@@ -929,15 +930,15 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: var(--accent-gradient);
+            background-color: var(--figma-blue);
             left: -9px;
             top: 5px;
-            box-shadow: 0 0 0 6px rgba(145, 135, 214, 0.1);
+            box-shadow: 0 0 0 6px rgba(26, 188, 254, 0.1);
             transition: box-shadow 0.3s ease;
         }
         
         .timeline-item:hover::before {
-            box-shadow: 0 0 0 8px rgba(145, 135, 214, 0.15);
+            box-shadow: 0 0 0 8px rgba(26, 188, 254, 0.15);
         }
 
         .timeline-item h3 {
@@ -964,7 +965,7 @@
             padding: 2rem;
             box-shadow: var(--card-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(0,0,0,0.05);
             height: 100%;
             position: relative;
             overflow: hidden;
@@ -977,9 +978,20 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: var(--accent-gradient);
             opacity: 0;
             transition: opacity 0.3s ease;
+        }
+        
+        .skill-category:nth-child(1)::before {
+            background-color: var(--figma-blue);
+        }
+        
+        .skill-category:nth-child(2)::before {
+            background-color: var(--figma-purple);
+        }
+        
+        .skill-category:nth-child(3)::before {
+            background-color: var(--figma-green);
         }
         
         .skill-category:hover::before {
@@ -997,6 +1009,18 @@
 
         .skill-category h3 {
             margin-bottom: 1.5rem;
+        }
+        
+        .skill-category:nth-child(1) h3 {
+            color: var(--figma-blue);
+        }
+        
+        .skill-category:nth-child(2) h3 {
+            color: var(--figma-purple);
+        }
+        
+        .skill-category:nth-child(3) h3 {
+            color: var(--figma-green);
         }
 
         .skill-list {
@@ -1025,13 +1049,24 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--accent-gradient);
-            box-shadow: 0 0 0 4px rgba(145, 135, 214, 0.08);
+            box-shadow: 0 0 0 4px rgba(26, 188, 254, 0.08);
             transition: box-shadow 0.3s ease;
         }
         
+        .skill-category:nth-child(1) .skill-list li::before {
+            background-color: var(--figma-blue);
+        }
+        
+        .skill-category:nth-child(2) .skill-list li::before {
+            background-color: var(--figma-purple);
+        }
+        
+        .skill-category:nth-child(3) .skill-list li::before {
+            background-color: var(--figma-green);
+        }
+        
         .skill-list li:hover::before {
-            box-shadow: 0 0 0 4px rgba(145, 135, 214, 0.15);
+            box-shadow: 0 0 0 4px rgba(26, 188, 254, 0.15);
         }
 
         .contact-cards {
@@ -1057,7 +1092,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .contact-card::before {
@@ -1070,15 +1105,15 @@
         }
 
         .contact-card:nth-child(1)::before {
-            background: linear-gradient(90deg, var(--figma-blue), #a8d7ff);
+            background-color: var(--email-color);
         }
 
         .contact-card:nth-child(2)::before {
-            background: linear-gradient(90deg, var(--figma-purple), #cbb5ff);
+            background-color: var(--linkedin-color);
         }
 
         .contact-card:nth-child(3)::before {
-            background: linear-gradient(90deg, var(--figma-green), #a8f0d0);
+            background-color: var(--resume-color);
         }
 
         .contact-card:hover {
@@ -1108,29 +1143,29 @@
         
         .contact-card:nth-child(1) .icon {
             color: var(--email-color);
-            filter: drop-shadow(0 4px 6px rgba(110, 181, 255, 0.15));
+            filter: drop-shadow(0 4px 6px rgba(26, 188, 254, 0.15));
         }
         
         .contact-card:nth-child(2) .icon {
             color: var(--linkedin-color);
-            filter: drop-shadow(0 4px 6px rgba(177, 156, 255, 0.15));
+            filter: drop-shadow(0 4px 6px rgba(162, 89, 255, 0.15));
         }
         
         .contact-card:nth-child(3) .icon {
             color: var(--resume-color);
-            filter: drop-shadow(0 4px 6px rgba(122, 217, 179, 0.15));
+            filter: drop-shadow(0 4px 6px rgba(10, 207, 131, 0.15));
         }
         
         .dark-mode .contact-card:nth-child(1) .icon {
-            filter: drop-shadow(0 4px 6px rgba(110, 181, 255, 0.25));
+            filter: drop-shadow(0 4px 6px rgba(26, 188, 254, 0.25));
         }
         
         .dark-mode .contact-card:nth-child(2) .icon {
-            filter: drop-shadow(0 4px 6px rgba(177, 156, 255, 0.25));
+            filter: drop-shadow(0 4px 6px rgba(162, 89, 255, 0.25));
         }
         
         .dark-mode .contact-card:nth-child(3) .icon {
-            filter: drop-shadow(0 4px 6px rgba(122, 217, 179, 0.25));
+            filter: drop-shadow(0 4px 6px rgba(10, 207, 131, 0.25));
         }
 
         .contact-card h3 {
@@ -1147,35 +1182,24 @@
         .contact-card a.email-link {
             color: var(--email-color);
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
             text-decoration: none;
             transition: all 0.3s ease;
-            position: relative;
+            border: 1px solid rgba(26, 188, 254, 0.3);
             display: inline-block;
         }
 
-        .contact-card a.email-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--email-color);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-card a.email-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        .contact-card a.email-link:hover {
+            background-color: rgba(26, 188, 254, 0.1);
+            border-color: var(--email-color);
         }
 
         .action-button {
             display: inline-block;
             padding: 1rem 1.5rem;
             font-weight: 600;
-            border-radius: 12px;
+            border-radius: 8px;
             text-decoration: none;
             text-align: center;
             transition: all 0.3s ease;
@@ -1225,21 +1249,21 @@
         }
         
         .linkedin-button {
-            background: linear-gradient(90deg, var(--figma-purple), #cbb5ff);
-            box-shadow: 0 4px 15px rgba(177, 156, 255, 0.2);
+            background-color: var(--linkedin-color);
+            box-shadow: 0 4px 15px rgba(162, 89, 255, 0.2);
         }
         
         .linkedin-button:hover {
-            box-shadow: 0 10px 20px rgba(177, 156, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(162, 89, 255, 0.3);
         }
         
         .resume-button {
-            background: linear-gradient(90deg, var(--figma-green), #a8f0d0);
-            box-shadow: 0 4px 15px rgba(122, 217, 179, 0.2);
+            background-color: var(--resume-color);
+            box-shadow: 0 4px 15px rgba(10, 207, 131, 0.2);
         }
         
         .resume-button:hover {
-            box-shadow: 0 10px 20px rgba(122, 217, 179, 0.3);
+            box-shadow: 0 10px 20px rgba(10, 207, 131, 0.3);
         }
 
         #cv-confirmation-message {
@@ -1256,7 +1280,7 @@
             text-align: center;
             margin-top: 4rem;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-            border-top: 1px solid var(--card-border);
+            border-top: 1px solid rgba(0,0,0,0.05);
             position: relative;
         }
         
@@ -1267,7 +1291,10 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: var(--accent-gradient);
+            background: linear-gradient(90deg, 
+                var(--figma-blue), 
+                var(--figma-purple), 
+                var(--figma-green));
         }
 
         footer p {
@@ -1281,7 +1308,7 @@
             left: 0;
             width: 100%;
             height: 70px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%239187d6'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%239187d6'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%239187d6'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%231abcfe'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%231abcfe'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%231abcfe'/%3E%3C/svg%3E");
             background-size: cover;
             background-repeat: no-repeat;
             pointer-events: none;
@@ -1385,7 +1412,7 @@
                 z-index: 1000;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 padding: 2rem;
-                border-left: 1px solid var(--card-border);
+                border-left: 1px solid rgba(0,0,0,0.05);
             }
             
             .mobile-menu-active nav ul {
@@ -1473,7 +1500,7 @@
             .mobile-theme-toggle {
                 display: block;
                 margin-top: 2rem;
-                background: var(--accent-gradient);
+                background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
                 color: white;
                 border: none;
                 padding: 0.8rem;
@@ -1856,7 +1883,7 @@
                     </svg>
                     <h3>LinkedIn</h3>
                     <p>Connect with me professionally</p>
-                    <a href="linkedin.com/in/pushpavie-krishnathasan-910b7a207" target="_blank" class="action-button linkedin-button">
+                    <a href="https://linkedin.com/in/pushpavie-krishnathasan-910b7a207" target="_blank" class="action-button linkedin-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                             <rect x="2" y="9" width="4" height="12"></rect>
