@@ -6,76 +6,78 @@
     <title>Pushpavie Krishnathasan - Portfolio</title>
     <style>
         :root {
-            /* Light mode - Figma-inspired colors */
-            --bg-color: #f5f5f7;
-            --text-color: #333;
-            --card-bg: #fff;
-            --accent-color: #1abcfe;
-            --secondary-color: #6e6e73;
-            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-            --header-bg: rgba(255, 255, 255, 0.8);
+            /* Pastel palette with exact hex codes */
+            --peach: #FBD5BD;
+            --light-pink: #FAEEE7;
+            --sage: #DEE0D1;
+            --light-blue: #BBCBEE;
+            --lavender: #E3DBEE;
             
-            /* Figma brand colors */
-            --figma-blue: #1abcfe;
-            --figma-purple: #a259ff;
-            --figma-green: #0acf83;
-            --figma-red: #ff7262;
-            --figma-yellow: #ffa800;
-            --figma-grid: rgba(0, 0, 0, 0.02);
+            /* Softer background color */
+            --bg-soft: #FDFBF9;
             
-            /* Contact card colors */
-            --email-color: #1abcfe;
-            --linkedin-color: #a259ff;
-            --resume-color: #0acf83;
-
-            /* Animation speeds */
-            --transition-fast: 0.2s;
-            --transition-medium: 0.4s;
-            --transition-slow: 0.8s;
+            /* Darker versions for text and contrast */
+            --peach-dark: #B17956;
+            --pink-dark: #A38E85;
+            --sage-dark: #728269;
+            --blue-dark: #6375A1;
+            --lavender-dark: #8A5A93;
+            
+            /* Text colors */
+            --text-primary: #333333;
+            --text-secondary: #555555;
+            --text-light: #FFFFFF;
+            
+            /* Theme variables */
+            --bg-color: var(--bg-soft);
+            --card-bg: ##fffcf9;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            --card-border: rgba(0, 0, 0, 0.05);
+            --section-alt: rgba(250, 238, 231, 0.3);
+            --header-bg: rgba(253, 251, 249, 0.85);
         }
 
         .dark-mode {
             --bg-color: #1a1a1a;
-            --text-color: #f5f5f7;
+            --text-primary: #F5F5F5;
+            --text-secondary: #aeaeb2;
             --card-bg: #2c2c2e;
-            --accent-color: #0a84ff;
-            --secondary-color: #aeaeb2;
-            --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            --header-bg: rgba(26, 26, 26, 0.8);
-            --figma-grid: rgba(255, 255, 255, 0.02);
+            --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            --section-alt: rgba(45, 45, 45, 1);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --header-bg: rgba(26, 26, 26, 0.85);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
         }
 
-        html, body {
-            min-height: 100vh;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.5s ease, color 0.5s ease;
-            padding-top: 80px;
-            cursor: default;
+        html {
             scroll-behavior: smooth;
         }
-        
-        @supports (-webkit-touch-callout: none) {
-            html, body {
-                min-height: -webkit-fill-content;
-                min-height: -webkit-fill-available;
-            }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-top: 80px;
         }
 
-        a, button {
-            cursor: pointer;
+        .container {
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* Animated background patterns */
+        /* Background effects */
         .bg-pattern {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -84,18 +86,18 @@
             opacity: 0.5;
             pointer-events: none;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(26, 188, 254, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 75% 70%, rgba(162, 89, 255, 0.05) 0%, transparent 20%);
+                radial-gradient(circle at 20% 30%, rgba(251, 213, 189, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 75% 70%, rgba(229, 187, 238, 0.1) 0%, transparent 20%);
         }
         
         .dark-mode .bg-pattern {
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(26, 188, 254, 0.07) 0%, transparent 25%),
-                radial-gradient(circle at 75% 70%, rgba(162, 89, 255, 0.07) 0%, transparent 25%);
+                radial-gradient(circle at 20% 30%, rgba(251, 213, 189, 0.07) 0%, transparent 25%),
+                radial-gradient(circle at 75% 70%, rgba(229, 187, 238, 0.07) 0%, transparent 25%);
         }
 
         .animated-shapes {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -116,45 +118,79 @@
         .shape-1 {
             width: 300px;
             height: 300px;
-            background-color: var(--figma-blue);
-            top: 20%;
-            left: -100px;
+            background-color: var(--peach);
+            top: 10%;
+            right: -100px;
             animation-delay: 0s;
         }
         
         .shape-2 {
-            width: 400px;
-            height: 400px;
-            background-color: var(--figma-purple);
-            bottom: -150px;
-            right: -100px;
+            width: 250px;
+            height: 250px;
+            background-color: var(--lavender);
+            bottom: -50px;
+            left: -50px;
             animation-delay: -5s;
+            animation: floatAnimation 12s infinite ease-in-out reverse;
         }
         
         .shape-3 {
-            width: 250px;
-            height: 250px;
-            background-color: var(--figma-green);
+            width: 200px;
+            height: 200px;
+            background-color: var(--light-blue);
             top: 60%;
             right: 20%;
             animation-delay: -10s;
+            animation: floatAnimation 18s infinite ease-in-out;
+            animation-delay: 5s;
         }
         
         @keyframes floatAnimation {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(50px, 50px) rotate(5deg);
-            }
-            50% {
-                transform: translate(20px, 20px) rotate(0deg);
-            }
-            75% {
-                transform: translate(-30px, 30px) rotate(-5deg);
-            }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, 20px) rotate(5deg); }
+            50% { transform: translate(10px, 40px) rotate(0deg); }
+            75% { transform: translate(-20px, 20px) rotate(-5deg); }
         }
 
+        
+        .figma-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(to right, rgba(222, 224, 209, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(222, 224, 209, 0.05) 1px, transparent 1px);
+            z-index: -3;
+            overflow: hidden;
+        }
+        
+        .dark-mode .figma-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--peach), 
+                var(--lavender), 
+                var(--light-blue));
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1001;
+            transition: transform 0.2s ease;
+        }
+
+        /* Loading screen */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -186,7 +222,10 @@
         
         .hello-world {
             font-family: 'Courier New', monospace;
-            color: var(--figma-blue);
+            background: linear-gradient(90deg, var(--peach), var(--lavender-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 3.5rem;
             text-align: center;
             margin-bottom: 0.5rem;
@@ -198,7 +237,10 @@
         
         .portfolio-subtitle {
             font-family: 'Courier New', monospace;
-            color: var(--figma-purple);
+            background: linear-gradient(90deg, var(--lavender-dark), var(--lavender-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 1.2rem;
             text-align: center;
             margin-bottom: 2rem;
@@ -235,9 +277,9 @@
             height: 100%;
             width: 0;
             background: linear-gradient(90deg, 
-                var(--figma-blue),
-                var(--figma-purple),
-                var(--figma-green));
+                var(--peach),
+                var(--lavender),
+                var(--light-blue));
             border-radius: 3px;
             animation: progress 4s ease forwards;
             animation-delay: 1.2s;
@@ -254,7 +296,7 @@
         }
         
         .loading-percentage {
-            color: var(--text-color);
+            color: var(--text-primary);
             font-size: 0.9rem;
             margin-bottom: 2rem;
             opacity: 0;
@@ -302,53 +344,45 @@
             }
         }
 
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                var(--figma-blue), 
-                var(--figma-purple), 
-                var(--figma-green));
-            transform-origin: left;
-            transform: scaleX(0);
-            z-index: 1001;
-            transition: transform 0.2s ease;
-        }
-
+        /* ===== HEADER ===== */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            z-index: 1000;
             background-color: var(--header-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 5%;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+        }
+
+        .dark-mode header {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
             font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--figma-blue);
+            font-size: 1.3rem;
+            background: linear-gradient(90deg, var(--peach), var(--lavender));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            text-decoration: none;
         }
 
         .logo .design-element {
             width: 24px;
             height: 24px;
-            background-color: var(--figma-blue);
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
             border-radius: 6px;
             position: relative;
             transition: transform 0.3s ease;
@@ -362,7 +396,7 @@
         .logo .design-element::after {
             content: "";
             position: absolute;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.905);
         }
 
         .logo .design-element::before {
@@ -382,12 +416,12 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--text-primary);
             font-weight: 500;
             position: relative;
             padding: 0.5rem 0;
@@ -395,7 +429,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--figma-blue);
+            color: var(--peach);
         }
 
         nav ul li a::after {
@@ -405,7 +439,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--figma-blue);
+            background: linear-gradient(90deg, var(--peach), var(--lavender));
             transition: width 0.3s ease;
         }
 
@@ -413,40 +447,127 @@
             width: 100%;
         }
 
-        /* Light bulb toggle */
-        .light-toggle-container {
-            position: fixed;
-            top: 80px;
-            right: 30px;
-            z-index: 100;
-            pointer-events: none;
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-active .mobile-menu-toggle span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .mobile-menu-active .mobile-menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-active .mobile-menu-toggle span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
-        .bulb-container {
+        /* ===== LIGHT BULB TOGGLE ===== */
+        .light-toggle-container {
+            position: fixed;
+            z-index: 1000;
+            bottom: 20px;
+            right: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            pointer-events: all;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .light-toggle-container {
+                top: 85px;
+                right: 20px;
+                bottom: auto;
+            }
+        }
+
+        .theme-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+            opacity: 0;
+            pointer-events: none;
+            color: rgba(255, 255, 255, 0.905);
+        }
+        
+        .dark-mode .theme-button {
+            background: linear-gradient(135deg, #444, #222);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            color: var(--peach);
+        }
+
+        @media (max-width: 575px) {
+            .theme-button {
+                opacity: 1;
+                pointer-events: all;
+            }
+            .light-toggle-container .light-bulb {
+                display: none;
+            }
         }
 
         .light-bulb {
-            width: 40px;
-            height: 60px;
+            width: 32px;
+            height: 48px;
             position: relative;
             cursor: pointer;
-            transition: filter 0.3s ease;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .light-bulb:hover {
+            opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+            .light-bulb {
+                width: 40px;
+                height: 60px;
+            }
         }
 
         .bulb-top {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 230, 0.7);
+            width: 32px;
+            height: 32px;
+            background-color: rgba(253, 249, 189, 0.762);
             border-radius: 50% 50% 15% 15%;
             position: absolute;
             top: 0;
             left: 0;
             box-shadow: 0 0 15px 5px rgba(255, 255, 200, 0);
             transition: all 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .bulb-top {
+                width: 40px;
+                height: 40px;
+            }
         }
 
         .dark-mode .bulb-top {
@@ -455,307 +576,228 @@
         }
 
         .bulb-middle {
-            width: 16px;
-            height: 8px;
+            width: 12px;
+            height: 6px;
             background-color: #e0e0e0;
             position: absolute;
-            top: 40px;
-            left: 12px;
+            top: 32px;
+            left: 10px;
             border-radius: 2px;
+        }
+        
+        @media (min-width: 768px) {
+            .bulb-middle {
+                width: 16px;
+                height: 8px;
+                top: 40px;
+                left: 12px;
+            }
         }
 
         .bulb-bottom {
-            width: 20px;
-            height: 12px;
-            background-color: #c0c0c0;
+            width: 16px;
+            height: 10px;
+            background-color: #898e97;
             position: absolute;
-            top: 48px;
-            left: 10px;
+            top: 38px;
+            left: 8px;
             border-radius: 0 0 5px 5px;
+        }
+        
+        @media (min-width: 768px) {
+            .bulb-bottom {
+                width: 20px;
+                height: 12px;
+                top: 48px;
+                left: 10px;
+            }
         }
 
         .cord {
-            width: 4px;
-            height: 100px;
+            width: 3px;
+            height: 0;
             background-color: #696969;
             margin-top: 5px;
             position: relative;
             cursor: pointer;
             transition: height 0.3s ease;
         }
+        
+        @media (min-width: 768px) {
+            .cord {
+                width: 4px;
+                height: 60px;
+            }
+        }
 
         .cord-end {
-            width: 12px;
-            height: 12px;
+            width: 9px;
+            height: 9px;
             background-color: #c0c0c0;
             border-radius: 50%;
             position: absolute;
             bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-        }
-
-        .figma-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: 20px 20px;
-            background-image: 
-                linear-gradient(to right, var(--figma-grid) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--figma-grid) 1px, transparent 1px);
-            z-index: -3;
-            overflow: hidden;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 5%;
-        }
-
-        section {
-            margin-bottom: 6rem;
-            padding: 2rem;
-            border-radius: 16px;
-            background-color: var(--card-bg);
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(0,0,0,0.05);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, background-color 0.5s ease;
-            position: relative;
-            overflow: hidden;
+            display: none;
         }
         
-        section:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06), 0 8px 25px rgba(0, 0, 0, 0.03);
-        }
-        
-        .dark-mode section:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                var(--figma-blue), 
-                var(--figma-purple), 
-                var(--figma-green));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        section:hover::before {
-            opacity: 1;
+        @media (min-width: 768px) {
+            .cord-end {
+                width: 12px;
+                height: 12px;
+                display: block;
+            }
         }
 
-        h1, h2, h3 {
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-size: 3rem;
-            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: 2rem;
-            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            position: relative;
-            margin-bottom: 2rem;
-        }
-        
-        h2::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, 
-                var(--figma-blue), 
-                var(--figma-purple));
-            border-radius: 3px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--figma-blue);
-        }
-
-        p {
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
+        /* ===== HERO SECTION ===== */
         .hero {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center; 
             justify-content: center;
-            padding: 4rem 2rem;
+            padding: 100px 0 90px; 
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
-            background-color: transparent;
-            box-shadow: none;
-            border: none;
+            min-height: 80vh; 
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+            margin-bottom: 0;
         }
+
         
-        .hero::before {
-            content: "";
+        .hero-bg-wrapper {
             position: absolute;
-            width: 150%;
-            height: 150%;
-            background: linear-gradient(45deg, 
-                rgba(26, 188, 254, 0.05) 0%, 
-                rgba(162, 89, 255, 0.05) 25%, 
-                rgba(10, 207, 131, 0.05) 50%, 
-                rgba(255, 114, 98, 0.05) 75%, 
-                rgba(26, 188, 254, 0.05) 100%);
-            top: -25%;
-            left: -25%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
-            border-radius: 30%;
-            animation: rotateGradient 25s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 600px; 
+            padding: 0;
+            animation: fadeIn 1s ease-out;
+            text-align: left; 
         }
         
-        .dark-mode .hero::before {
-            background: linear-gradient(45deg, 
-                rgba(26, 188, 254, 0.06) 0%, 
-                rgba(162, 89, 255, 0.06) 25%, 
-                rgba(10, 207, 131, 0.06) 50%, 
-                rgba(255, 114, 98, 0.06) 75%, 
-                rgba(26, 188, 254, 0.06) 100%);
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 5rem;
+                min-height: auto;
+                padding-bottom: 4rem;
+            }
         }
-        
-        @keyframes rotateGradient {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+
         
         .name-container {
-            padding: 20px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem; 
             position: relative;
             width: 100%;
-            max-width: 800px;
+            max-width: 600px;
+            line-height: 1.1;
+            text-align: left; 
+        }
+
+        .name-line {
+            font-size: clamp(2.5rem, 8vw, 3.5rem); 
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--peach), var(--lavender-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.2em;
         }
         
-        .name-heading {
-            font-size: 4.5rem;
-            line-height: 1.1;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
+        .dark-mode .name-line {
+            background: linear-gradient(90deg, #FBD5BD, #E3DBEE);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .name-container::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 20px;
-            width: 80px;
-            height: 6px;
-            background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
-            animation: highlight-pulse 3s ease-in-out infinite;
-            border-radius: 3px;
+            display:none
         }
-        
-        @keyframes highlight-pulse {
-            0%, 100% { width: 80px; opacity: 1; }
-            50% { width: 150px; opacity: 0.7; }
+
+        @keyframes pulse {
+            0%, 100% { 
+                width: 80px; 
+                opacity: 1; 
+            }
+            50% { 
+                width: 120px; 
+                opacity: 0.7; 
+    }
         }
-        
+
         .hero p {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            max-width: 600px;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            animation: fadeIn 1s ease-out;
+            font-size: 0.95rem; 
+            margin-bottom: 1.5rem;
+            max-width: 570px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            text-align: left; 
         }
-        
+
+        /* CTA Buttons */
         .cta-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
-            animation: fadeIn 0.8s ease-out forwards;
-            animation-delay: 0.5s;
-            opacity: 0;
+            margin-top: 1.5rem; 
+            flex-wrap: wrap;
+            justify-content: flex-start; 
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.6rem; 
             border-radius: 8px;
             font-weight: 600;
+            font-size: 0.95rem; 
             text-decoration: none;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             cursor: pointer;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
+            min-width: 150px; 
         }
 
         .btn-primary {
-            background-color: var(--figma-blue);
-            color: white;
-            box-shadow: 0 4px 15px rgba(26, 188, 254, 0.15);
-        }
-        
-        .dark-mode .btn-primary {
-            box-shadow: 0 4px 15px rgba(26, 188, 254, 0.2);
+            background: linear-gradient(90deg, var(--peach), var(--lavender));
+            color: rgba(255, 255, 255, 0.905);
+            box-shadow: 0 4px 15px rgba(251, 213, 189, 0.15);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(26, 188, 254, 0.3);
+            box-shadow: 0 10px 20px rgba(251, 213, 189, 0.3);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--figma-blue);
-            border: 2px solid var(--figma-blue);
-            box-shadow: 0 4px 15px rgba(26, 188, 254, 0.08);
+            color: var(--text-primary);
+            border: 2px solid;
+            border-image: linear-gradient(90deg, var(--peach), var(--lavender)) 1;
         }
 
         .btn-secondary:hover {
-            background-color: var(--figma-blue);
-            color: white;
+            background: linear-gradient(90deg, var(--peach), var(--lavender));
+            color: rgba(255, 255, 255, 0.905);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(26, 188, 254, 0.3);
-            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(251, 213, 189, 0.3);
+            border: 2px solid transparent;
         }
         
         .btn::before {
@@ -777,11 +819,104 @@
             left: 100%;
         }
 
+        /* ===== SECTIONS ===== */
+        .section-wrapper {
+            padding: 0;
+            margin-top: 60px; 
+        }
+
+        section {
+            margin-bottom: 3.5rem; 
+            padding: 2rem 1.5rem; 
+            border-radius: 16px;
+            background-color: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            max-width: 1000px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        section#about {
+            background-color: transparent;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+        }
+        
+        section:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06), 0 8px 20px rgba(0, 0, 0, 0.03);
+        }
+        
+        .dark-mode section:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--peach), 
+                var(--lavender), 
+                var(--light-blue));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            font-size: 1.8rem; 
+            margin-bottom: 2rem;
+            position: relative;
+            background: linear-gradient(90deg, #F6B2A2, #DCA6B5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .dark-mode .section-title {
+            background: linear-gradient(90deg, #F6B2A2, #DCA6B5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #F6B2A2, #DCA6B5);
+            border-radius: 3px;
+        }
+
+        /* ===== PROJECTS GRID ===== */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.5rem; 
+            margin-top: 1.5rem; 
         }
 
         .project-card {
@@ -792,19 +927,19 @@
             transition: all 0.4s ease;
             position: relative;
             z-index: 1;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--card-border);
             height: 100%;
             padding-bottom: 1rem;
         }
 
         .project-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
             z-index: 2;
         }
         
         .dark-mode .project-card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
         }
 
         .card-color-bar {
@@ -814,87 +949,121 @@
             overflow: hidden;
         }
 
-        .color-1 { 
-            background-color: var(--figma-purple);
-        }
-        .color-2 { 
-            background-color: var(--figma-blue);
-        }
-        .color-3 { 
-            background-color: var(--figma-green);
-        }
-        .color-4 { 
-            background-color: var(--figma-red);
-        }
-        .color-5 { 
-            background-color: var(--figma-yellow);
-        }
-        .color-6 { 
-            background-color: var(--figma-blue);
-        }
+        .project-card:nth-child(1) .card-color-bar { background-color: var(--peach); }
+        .project-card:nth-child(2) .card-color-bar { background-color: var(--lavender); }
+        .project-card:nth-child(3) .card-color-bar { background-color: var(--sage); }
+        .project-card:nth-child(4) .card-color-bar { background-color: var(--light-blue); }
+        .project-card:nth-child(5) .card-color-bar { background-color: var(--light-pink); }
+        .project-card:nth-child(6) .card-color-bar { background-color: var(--sage-dark);}
 
         .project-content {
-            padding: 1.5rem;
+            padding: 1.25rem; 
         }
 
-        .project-card h3 {
-            color: var(--figma-blue);
-            margin-bottom: 0.75rem;
+        .project-title {
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem; 
             transition: all 0.3s ease;
+        }
+
+        .project-card:nth-child(1) .project-title {
+            background: linear-gradient(90deg, var(--peach), var(--pink-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-card:nth-child(2) .project-title {
+            background: linear-gradient(90deg, var(--lavender-dark), var(--light-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-card:nth-child(3) .project-title {
+            background: linear-gradient(90deg, var(--sage-dark), var(--blue-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-card:nth-child(4) .project-title {
+            background: linear-gradient(90deg, var(--blue-dark), var(--lavender-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-card:nth-child(5) .project-title {
+            background: linear-gradient(90deg, var(--peach-dark), var(--pink-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-card:nth-child(6) .project-title {
+            background: linear-gradient(90deg, var(--sage-dark), var(--peach-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .technologies {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1.5rem;
+            margin-top: 1.25rem; 
         }
 
         .tech-tag {
-            background-color: rgba(26, 188, 254, 0.1);
-            color: var(--figma-blue);
-            padding: 0.4rem 0.8rem;
+            padding: 0.35rem 0.7rem; 
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem; 
             font-weight: 500;
             transition: all 0.3s ease;
         }
         
-        .dark-mode .tech-tag {
-            background-color: rgba(26, 188, 254, 0.12);
+        
+        .project-card:nth-child(1) .tech-tag { 
+            background-color: rgba(251, 213, 189, 0.15);
+            color: var(--peach-dark);
+        }
+        
+        .project-card:nth-child(2) .tech-tag { 
+            background-color: rgba(229, 187, 238, 0.15);
+            color: var(--lavender-dark);
+        }
+        
+        .project-card:nth-child(3) .tech-tag { 
+            background-color: rgba(222, 224, 209, 0.15);
+            color: var(--sage-dark);
+        }
+        
+        .project-card:nth-child(4) .tech-tag { 
+            background-color: rgba(187, 203, 238, 0.15);
+            color: var(--blue-dark);
+        }
+        
+        .project-card:nth-child(5) .tech-tag { 
+            background-color: rgba(250, 238, 231, 0.15);
+            color: var(--pink-dark);
+        }
+        
+        .project-card:nth-child(6) .tech-tag { 
+            background-color: rgba(221, 247, 208, 0.15);
+            color: var(--sage-dark);
         }
         
         .project-card:hover .tech-tag {
-            background-color: rgba(26, 188, 254, 0.2);
-        }
-        
-        .dark-mode .project-card:hover .tech-tag {
-            background-color: rgba(26, 188, 254, 0.18);
+            background-color: rgba(251, 213, 189, 0.25);
         }
 
-        /* View All Projects button */
-        .view-all-projects {
-            display: flex;
-            justify-content: center;
-            margin-top: 2.5rem;
-        }
-        
-        .view-all-projects .btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-        }
-        
-        .view-all-projects .btn svg {
-            transition: transform 0.3s ease;
-        }
-        
-        .view-all-projects .btn:hover svg {
-            transform: translateX(3px);
+        .view-all {
+            text-align: center;
+            margin-top: 2rem;
         }
 
+        /* ===== TIMELINE ===== */
         .timeline {
             position: relative;
             margin-top: 2rem;
@@ -906,8 +1075,8 @@
             position: absolute;
             width: 2px;
             background: linear-gradient(to bottom, 
-                var(--figma-blue),
-                var(--figma-purple));
+                var(--peach),
+                var(--lavender));
             top: 0;
             bottom: 0;
             left: 0;
@@ -930,42 +1099,56 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background-color: var(--figma-blue);
             left: -9px;
             top: 5px;
-            box-shadow: 0 0 0 6px rgba(26, 188, 254, 0.1);
+            box-shadow: 0 0 0 6px rgba(251, 213, 189, 0.1);
             transition: box-shadow 0.3s ease;
         }
         
+        .timeline-item:nth-child(1)::before,
+        .timeline-item:nth-child(2)::before {
+            background-color: var(--peach);
+        }
+        
         .timeline-item:hover::before {
-            box-shadow: 0 0 0 8px rgba(26, 188, 254, 0.15);
+            box-shadow: 0 0 0 8px rgba(251, 213, 189, 0.15);
         }
 
-        .timeline-item h3 {
+        .timeline-title {
             margin-bottom: 0.5rem;
+            font-size: 1.3rem; 
+        }
+        
+        .timeline-item:nth-child(1) .timeline-title,
+        .timeline-item:nth-child(2) .timeline-title {
+            background: linear-gradient(45deg, var(--peach-dark), var(--peach));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .timeline-item .date {
-            color: var(--secondary-color);
+        .date {
             font-size: 0.9rem;
             margin-bottom: 0.75rem;
             display: block;
+            color: var(--text-secondary);
         }
 
+        /* ===== SKILLS SECTION ===== */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.5rem; 
+            margin-top: 1.5rem; 
         }
 
         .skill-category {
             background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem; 
             box-shadow: var(--card-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--card-border);
             height: 100%;
             position: relative;
             overflow: hidden;
@@ -983,15 +1166,15 @@
         }
         
         .skill-category:nth-child(1)::before {
-            background-color: var(--figma-blue);
+            background-color: var(--peach);
         }
         
         .skill-category:nth-child(2)::before {
-            background-color: var(--figma-purple);
+            background-color: var(--lavender);
         }
         
         .skill-category:nth-child(3)::before {
-            background-color: var(--figma-green);
+            background-color: var(--light-blue);
         }
         
         .skill-category:hover::before {
@@ -1000,27 +1183,37 @@
 
         .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
         }
         
         .dark-mode .skill-category:hover {
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .skill-category h3 {
-            margin-bottom: 1.5rem;
+        .skill-title {
+            margin-bottom: 1.25rem; 
+            font-size: 1.3rem; 
         }
         
-        .skill-category:nth-child(1) h3 {
-            color: var(--figma-blue);
+        .skill-category:nth-child(1) .skill-title {
+            background: linear-gradient(90deg, var(--peach-dark), var(--pink-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        .skill-category:nth-child(2) h3 {
-            color: var(--figma-purple);
+        .skill-category:nth-child(2) .skill-title {
+            background: linear-gradient(90deg, var(--lavender-dark), var(--blue-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        .skill-category:nth-child(3) h3 {
-            color: var(--figma-green);
+        .skill-category:nth-child(3) .skill-title {
+            background: linear-gradient(90deg, var(--blue-dark), var(--sage-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .skill-list {
@@ -1028,7 +1221,7 @@
         }
 
         .skill-list li {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
             padding-left: 1.5rem;
@@ -1049,41 +1242,40 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(26, 188, 254, 0.08);
             transition: box-shadow 0.3s ease;
         }
         
         .skill-category:nth-child(1) .skill-list li::before {
-            background-color: var(--figma-blue);
+            background-color: var(--peach);
+            box-shadow: 0 0 0 3px rgba(251, 213, 189, 0.2);
         }
         
         .skill-category:nth-child(2) .skill-list li::before {
-            background-color: var(--figma-purple);
+            background-color: var(--lavender);
+            box-shadow: 0 0 0 3px rgba(229, 187, 238, 0.2);
         }
         
         .skill-category:nth-child(3) .skill-list li::before {
-            background-color: var(--figma-green);
+            background-color: var(--light-blue);
+            box-shadow: 0 0 0 3px rgba(187, 203, 238, 0.2);
         }
         
         .skill-list li:hover::before {
-            box-shadow: 0 0 0 4px rgba(26, 188, 254, 0.15);
+            box-shadow: 0 0 0 4px rgba(251, 213, 189, 0.3);
         }
 
+        /* ===== CONTACT SECTION ===== */
         .contact-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 2rem; 
+            margin-top: 2rem; 
         }
 
         .contact-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 350px;
             background-color: var(--card-bg);
             border-radius: 16px;
-            padding: 2.5rem;
+            padding: 2rem; 
             box-shadow: var(--card-shadow);
             display: flex;
             flex-direction: column;
@@ -1092,7 +1284,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--card-border);
         }
 
         .contact-card::before {
@@ -1105,30 +1297,30 @@
         }
 
         .contact-card:nth-child(1)::before {
-            background-color: var(--email-color);
+            background-color: var(--peach);
         }
 
         .contact-card:nth-child(2)::before {
-            background-color: var(--linkedin-color);
+            background-color: var(--lavender);
         }
 
         .contact-card:nth-child(3)::before {
-            background-color: var(--resume-color);
+            background-color: var(--light-blue);
         }
 
         .contact-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); 
         }
         
         .dark-mode .contact-card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12); 
         }
 
-        .contact-card .icon {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 1.5rem;
+        .contact-icon {
+            width: 56px; 
+            height: 56px; 
+            margin-bottom: 1.25rem; 
             fill: none;
             stroke: currentColor;
             stroke-width: 2;
@@ -1137,74 +1329,90 @@
             transition: transform 0.5s ease;
         }
         
-        .contact-card:hover .icon {
+        .contact-card:hover .contact-icon {
             transform: scale(1.1) rotate(5deg);
         }
         
-        .contact-card:nth-child(1) .icon {
-            color: var(--email-color);
-            filter: drop-shadow(0 4px 6px rgba(26, 188, 254, 0.15));
+        .contact-card:nth-child(1) .contact-icon {
+            color: var(--peach);
+            filter: drop-shadow(0 4px 6px rgba(251, 213, 189, 0.2));
         }
         
-        .contact-card:nth-child(2) .icon {
-            color: var(--linkedin-color);
-            filter: drop-shadow(0 4px 6px rgba(162, 89, 255, 0.15));
+        .contact-card:nth-child(2) .contact-icon {
+            color: var(--lavender);
+            filter: drop-shadow(0 4px 6px rgba(229, 187, 238, 0.2));
         }
         
-        .contact-card:nth-child(3) .icon {
-            color: var(--resume-color);
-            filter: drop-shadow(0 4px 6px rgba(10, 207, 131, 0.15));
+        .contact-card:nth-child(3) .contact-icon {
+            color: var(--light-blue);
+            filter: drop-shadow(0 4px 6px rgba(187, 203, 238, 0.2));
         }
         
-        .dark-mode .contact-card:nth-child(1) .icon {
-            filter: drop-shadow(0 4px 6px rgba(26, 188, 254, 0.25));
-        }
-        
-        .dark-mode .contact-card:nth-child(2) .icon {
-            filter: drop-shadow(0 4px 6px rgba(162, 89, 255, 0.25));
-        }
-        
-        .dark-mode .contact-card:nth-child(3) .icon {
-            filter: drop-shadow(0 4px 6px rgba(10, 207, 131, 0.25));
+        .dark-mode .contact-card:nth-child(1) .contact-icon,
+        .dark-mode .contact-card:nth-child(2) .contact-icon,
+        .dark-mode .contact-card:nth-child(3) .contact-icon {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
         }
 
-        .contact-card h3 {
-            margin-bottom: 0.75rem;
-            font-size: 1.5rem;
+        .contact-title {
+            margin-bottom: 0.6rem; 
+            font-size: 1.4rem; 
+        }
+        
+        .contact-card:nth-child(1) .contact-title {
+            background: linear-gradient(90deg, var(--peach), var(--peach-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-card:nth-child(2) .contact-title {
+            background: linear-gradient(90deg, var(--lavender), var(--lavender-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-card:nth-child(3) .contact-title {
+            background: linear-gradient(90deg, var(--light-blue), var(--blue-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .contact-card p {
-            font-size: 1rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
+            font-size: 0.95rem; 
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem; 
         }
 
-        .contact-card a.email-link {
-            color: var(--email-color);
+        .email-link {
+            color: var(--peach-dark);
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 6px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid rgba(26, 188, 254, 0.3);
+            border: 1px solid rgba(251, 213, 189, 0.3);
             display: inline-block;
         }
 
-        .contact-card a.email-link:hover {
-            background-color: rgba(26, 188, 254, 0.1);
-            border-color: var(--email-color);
+        .email-link:hover {
+            background-color: rgba(251, 213, 189, 0.1);
+            border-color: var(--peach);
         }
 
         .action-button {
             display: inline-block;
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.25rem; 
             font-weight: 600;
+            font-size: 0.95rem; 
             border-radius: 8px;
             text-decoration: none;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
-            color: white;
+            color: rgba(255, 255, 255, 0.905);
             position: relative;
             width: 100%;
             display: flex;
@@ -1249,38 +1457,49 @@
         }
         
         .linkedin-button {
-            background-color: var(--linkedin-color);
-            box-shadow: 0 4px 15px rgba(162, 89, 255, 0.2);
+            background-color: var(--lavender);
+            box-shadow: 0 4px 8px rgba(229, 187, 238, 0.15);
         }
         
         .linkedin-button:hover {
-            box-shadow: 0 10px 20px rgba(162, 89, 255, 0.3);
+            box-shadow: 0 6px 12px rgba(229, 187, 238, 0.2);
         }
         
         .resume-button {
-            background-color: var(--resume-color);
-            box-shadow: 0 4px 15px rgba(10, 207, 131, 0.2);
+            background-color: var(--light-blue);
+            box-shadow: 0 4px 8px rgba(187, 203, 238, 0.15);
         }
         
         .resume-button:hover {
-            box-shadow: 0 10px 20px rgba(10, 207, 131, 0.3);
+            box-shadow: 0 6px 12px rgba(187, 203, 238, 0.2);
+        }
+        
+        .dark-mode .linkedin-button,
+        .dark-mode .resume-button {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dark-mode .linkedin-button:hover,
+        .dark-mode .resume-button:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
         }
 
         #cv-confirmation-message {
             margin-top: 15px;
             font-size: 0.9rem;
-            color: var(--resume-color);
+            color: var(--light-blue);
             transition: opacity 0.3s ease;
             display: none;
         }
 
+        /* ===== FOOTER ===== */
         footer {
             background-color: var(--card-bg);
-            padding: 2rem 5%;
+            padding: 1.5rem 0; 
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 3rem; 
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-            border-top: 1px solid rgba(0,0,0,0.05);
+            border-top: 1px solid var(--card-border);
             position: relative;
         }
         
@@ -1292,14 +1511,15 @@
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, 
-                var(--figma-blue), 
-                var(--figma-purple), 
-                var(--figma-green));
+                var(--peach), 
+                var(--lavender), 
+                var(--light-blue));
         }
 
         footer p {
-            color: var(--secondary-color);
+            color: var(--text-secondary);
             margin-bottom: 0;
+            font-size: 0.9rem; 
         }
         
         .footer-wave {
@@ -1308,7 +1528,7 @@
             left: 0;
             width: 100%;
             height: 70px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%231abcfe'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%231abcfe'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%231abcfe'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23FBD5BD'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23FBD5BD'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23FBD5BD'/%3E%3C/svg%3E");
             background-size: cover;
             background-repeat: no-repeat;
             pointer-events: none;
@@ -1319,77 +1539,23 @@
             opacity: 0.05;
         }
 
-        @media print {
-            .light-toggle-container, 
-            .figma-grid,
-            .loading-screen,
-            .scroll-indicator,
-            .animated-shapes,
-            .bg-pattern,
-            .footer-wave {
-                display: none !important;
-            }
-            
-            body {
-                padding-top: 0;
-                background-color: white !important;
-                color: black !important;
-            }
-            
-            header {
-                position: relative;
-                box-shadow: none;
-                margin-bottom: 20px;
-            }
-            
-            main {
-                padding: 0;
-            }
-            
-            a {
-                color: black !important;
-                text-decoration: underline;
-            }
-            
-            .btn {
-                border: 1px solid #ddd;
-                background: none !important;
-                color: black !important;
-            }
-            
-            .view-all-projects, .cta-buttons {
-                display: none;
+        @media (max-width: 992px) {
+            .projects-grid,
+            .skills-container,
+            .contact-cards {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 1.5rem;
             }
             
             section {
-                page-break-inside: avoid;
-                opacity: 1 !important;
-                transform: none !important;
-                box-shadow: none;
-                border: 1px solid #eee;
-            }
-            
-            h1, h2, h3 {
-                background: none !important;
-                -webkit-text-fill-color: black !important;
-                color: black !important;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .projects-grid,
-            .skills-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .light-toggle-container {
-                right: 15px;
+                padding: 1.75rem 1.25rem;
+                margin-bottom: 3rem;
             }
         }
         
         @media (max-width: 768px) {
             header {
-                padding: 0.8rem 1rem;
+                padding: 1rem 5%;
             }
             
             .mobile-menu-toggle {
@@ -1412,7 +1578,7 @@
                 z-index: 1000;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 padding: 2rem;
-                border-left: 1px solid rgba(0,0,0,0.05);
+                border-left: 1px solid var(--card-border);
             }
             
             .mobile-menu-active nav ul {
@@ -1424,32 +1590,22 @@
             }
             
             .hero {
-                padding: 2rem 0;
+                padding: 3rem 0;
                 min-height: auto;
             }
             
-            .name-heading {
-                font-size: 3.5rem;
+            .name-line {
+                font-size: clamp(2rem, 8vw, 3.5rem);
             }
             
-            h2 {
+            .section-title {
                 font-size: 1.8rem;
+                margin-bottom: 2rem;
             }
             
-            .projects-grid,
-            .skills-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .contact-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .contact-card {
-                width: 100%;
-                max-width: 100%;
+            section {
+                padding: 1.5rem;
+                margin-bottom: 3rem;
             }
             
             .cta-buttons {
@@ -1460,17 +1616,17 @@
             .btn {
                 width: 100%;
                 text-align: center;
-            }
-
-            section {
-                padding: 1.5rem;
-                margin-bottom: 3rem;
+                min-width: 0;
             }
             
-            .light-toggle-container {
-                top: auto;
-                bottom: 30px;
-                right: 20px;
+            .project-content {
+                padding: 1.2rem;
+            }
+            
+            .projects-grid,
+            .skills-container,
+            .contact-cards {
+                grid-template-columns: 1fr; /* 1 column on mobile screens */
             }
         }
         
@@ -1480,96 +1636,74 @@
             }
             
             header {
-                padding: 0.5rem 1rem;
-                height: 60px;
+                padding: 0.8rem 5%;
             }
             
             .logo {
                 font-size: 1.2rem;
             }
-            
-            .logo .design-element {
-                width: 20px;
-                height: 20px;
+
+            .name-container {
+                margin-bottom: 1.5rem;
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                line-height: 1.1;
+                text-align: center;
+                padding-bottom: 15px;
             }
             
-            .light-toggle-container {
-                display: none;
+            .name-line {
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+                line-height: 1.2;
+                word-break: keep-all;
+                white-space: normal;
+                overflow-wrap: break-word;
             }
             
-            .mobile-theme-toggle {
-                display: block;
-                margin-top: 2rem;
-                background: linear-gradient(90deg, var(--figma-blue), var(--figma-purple));
-                color: white;
-                border: none;
-                padding: 0.8rem;
-                border-radius: 8px;
-                font-weight: 600;
-                cursor: pointer;
-            }
-            
-            main {
-                padding: 1rem;
-            }
-            
-            section {
-                margin-bottom: 3rem;
-                padding: 1.25rem;
-            }
-            
-            .name-heading {
-                font-size: 2.8rem;
-            }
-            
-            h2 {
+            .section-title {
                 font-size: 1.5rem;
                 margin-bottom: 1.5rem;
             }
             
-            p {
-                font-size: 0.95rem;
-            }
-            
-            .project-content {
-                padding: 1rem;
-            }
-        }
-        
-        @media (max-height: 500px) and (orientation: landscape) {
-            body {
-                padding-top: 50px;
-            }
-            
-            header {
-                height: 50px;
-            }
-            
-            .light-toggle-container {
-                display: none;
-            }
-            
-            .hero {
-                padding: 1rem 0;
-                min-height: auto;
-            }
-            
-            section {
-                margin-bottom: 2rem;
+            .timeline {
+                padding-left: 1.5rem;
             }
             
             .timeline-item {
-                margin-bottom: 1rem;
+                padding-left: 1rem;
             }
             
-            .mobile-theme-toggle {
-                display: block;
+            .projects-grid, 
+            .skills-container, 
+            .contact-cards {
+                gap: 1rem;
+            }
+            
+            .project-title,
+            .timeline-title,
+            .skill-title,
+            .contact-title {
+                font-size: 1.2rem;
+            }
+            
+            .contact-card, 
+            .skill-category {
+                padding: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
             }
         }
         
         @media (max-width: 360px) {
-            .name-heading {
-                font-size: 2.5rem;
+            .name-line {
+                font-size: clamp(1.6rem, 6vw, 2.2rem);
             }
             
             .hero p {
@@ -1581,72 +1715,26 @@
                 font-size: 0.9rem;
             }
             
-            .project-card h3, 
-            .skill-category h3, 
-            .contact-card h3 {
+            .project-title, 
+            .skill-title, 
+            .contact-title,
+            .timeline-title {
                 font-size: 1.1rem;
             }
             
             .tech-tag {
                 font-size: 0.7rem;
-                padding: 0.2rem 0.6rem;
+                padding: 0.3rem 0.7rem;
             }
 
             section {
                 padding: 1rem;
+                margin-bottom: 2rem;
             }
-        }
-        
-        @media (min-width: 1920px) {
-            main {
-                max-width: 1600px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            }
-
-            section {
-                padding: 3rem;
-            }
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        .mobile-menu-toggle span {
-            display: block;
-            height: 2px;
-            width: 100%;
-            background-color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-active .mobile-menu-toggle span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-        
-        .mobile-menu-active .mobile-menu-toggle span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .mobile-menu-active .mobile-menu-toggle span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-        }
-        
-        .mobile-theme-toggle {
-            display: none;
         }
     </style>
 </head>
-<body>
+<body class="dark-mode">
     <div class="loading-screen">
         <div class="code-particles" id="code-particles"></div>
         <div class="loading-content">
@@ -1660,17 +1748,9 @@
     </div>
 
     <div class="scroll-indicator"></div>
-    
-    <div class="figma-grid"></div>
-    <div class="bg-pattern"></div>
-    <div class="animated-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
 
     <header>
-        <a href="#" class="logo">
+        <a class="logo">
             <div class="design-element"></div>
             <span>Pushpavie</span>
         </a>
@@ -1682,242 +1762,259 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">My Projects</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="mobile-theme-toggle-container"><button class="mobile-theme-toggle">Toggle Dark Mode</button></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Light bulb toggle -->
     <div class="light-toggle-container">
-        <div class="bulb-container">
-            <div class="light-bulb">
-                <div class="bulb-top"></div>
-                <div class="bulb-middle"></div>
-                <div class="bulb-bottom"></div>
-            </div>
-            <div class="cord">
-                <div class="cord-end"></div>
-            </div>
+        <div class="theme-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </div>
+        <div class="light-bulb">
+            <div class="bulb-top"></div>
+            <div class="bulb-middle"></div>
+            <div class="bulb-bottom"></div>
+        </div>
+        <div class="cord">
+            <div class="cord-end"></div>
         </div>
     </div>
 
-    <main>
-        <section id="about" class="hero">
-            <div class="name-container">
-                <div class="name-heading">PUSHPAVIE</div>
-                <div class="name-heading">KRISHNATHASAN</div>
+    <div id="about" class="hero">
+        <div class="hero-bg-wrapper">
+            <div class="figma-grid"></div>
+            <div class="bg-pattern"></div>
+            <div class="animated-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
             </div>
-            <p>Computer Science undergraduate driven to create practical, elegant solutions to real-world challenges. I blend analytical thinking with creative problem-solving to make a meaningful impact. My diverse project experience has strengthened my technical foundation and ability to adapt quickly. I approach each opportunity with humility, eager to contribute what I've learned while embracing new knowledge and growth in collaborative environments.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    View My Work
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    Get In Touch
-                </a>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="name-container">
+                    <span class="name-line">PUSHPAVIE</span>
+                    <span class="name-line">KRISHNATHASAN</span>
+                </div>
+                <p>Computer Science undergraduate driven to create practical, elegant solutions to real-world challenges. I blend analytical thinking with creative problem-solving to make a meaningful impact. My diverse project experience has strengthened my technical foundation and ability to adapt quickly. I approach each opportunity with humility, eager to contribute what I've learned while embracing new knowledge and growth in collaborative environments.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Get In Touch
+                    </a>
+                </div>
             </div>
-        </section>
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="card-color-bar color-6"></div>
-                    <div class="project-content">
-                        <h3>Bookstore RESTful API</h3>
-                        <p>E-commerce backend system built with JAX-RS implementing complete management of authors, books, customers, carts and orders through RESTful architecture with proper HTTP methods.</p>
-                        <div class="technologies">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">JAX-RS</span>
-                            <span class="tech-tag">JSON</span>
-                            <span class="tech-tag">Postman</span>
-                            <span class="tech-tag">Maven</span>
+        </div>
+    </div>
+    
+    <main class="container">
+        <div class="section-wrapper">
+            <section id="projects" class="active">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="card-color-bar"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Bookstore RESTful API</h3>
+                            <p>E-commerce backend system built with JAX-RS implementing complete management of authors, books, customers, carts and orders through RESTful architecture.</p>
+                            <div class="technologies">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">JAX-RS</span>
+                                <span class="tech-tag">JSON</span>
+                                <span class="tech-tag">Postman</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-color-bar"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">VocaRise</h3>
+                            <p>Interactive choir training app using gamification to improve vocal skills. Tracks progress as users complete challenges of increasing difficulty.</p>
+                            <div class="technologies">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-color-bar"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Agri-Track</h3>
+                            <p>Platform connecting farmers directly with consumers while providing market intelligence tools. Eliminates middlemen for fairer prices.</p>
+                            <div class="technologies">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Design Thinking</span>
+                                <span class="tech-tag">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-color-bar"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Student Management</h3>
+                            <p>Java-based solution for educational institutions with optimized file storage for quick data access. Streamlines registration and tracking.</p>
+                            <div class="technologies">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">File I/O</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-color-bar"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Finance Tracker</h3>
+                            <p>Financial management application allowing users to record, categorize, and analyze transactions. Provides visual reports for better budgeting.</p>
+                            <div class="technologies">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Tkinter</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-color-bar"></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Green Pledge</h3>
+                            <p>Website raising awareness about climate change through engaging, responsive content. Inspires actionable steps toward sustainability.</p>
+                            <div class="technologies">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="card-color-bar color-1"></div>
-                    <div class="project-content">
-                        <h3>VocaRise</h3>
-                        <p>Interactive choir training app using gamification to improve vocal skills. Tracks progress as users complete challenges of increasing difficulty, making practice effective and enjoyable.</p>
-                        <div class="technologies">
-                            <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="card-color-bar color-3"></div>
-                    <div class="project-content">
-                        <h3>Agri-Track</h3>
-                        <p>Platform connecting farmers directly with consumers while providing market intelligence tools. Eliminates middlemen so farmers receive fairer prices while offering consumers fresher produce. Features real-time pricing data, weather alerts, and analytics dashboards.</p>
-                        <div class="technologies">
-                            <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">Design Thinking</span>
-                            <span class="tech-tag">UI/UX Design</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="card-color-bar color-2"></div>
-                    <div class="project-content">
-                        <h3>Student Management System</h3>
-                        <p>Java-based solution for educational institutions with optimized file storage for quick data access. Streamlines registration, attendance tracking, and academic performance monitoring.</p>
-                        <div class="technologies">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">File I/O</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="card-color-bar color-5"></div>
-                    <div class="project-content">
-                        <h3>Personal Finance Tracker</h3>
-                        <p>Financial management application allowing users to record, categorize, and analyze transactions. Provides expense monitoring, income tracking, and visual reports for better budgeting decisions.</p>
-                        <div class="technologies">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Tkinter</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Green Pledge project card -->
-                <div class="project-card">
-                    <div class="card-color-bar color-4"></div>
-                    <div class="project-content">
-                        <h3>Green Pledge</h3>
-                        <p>Website raising awareness about climate change through engaging, responsive content. Educates visitors on environmental challenges and inspires actionable steps toward sustainability.
-                        </p>
-                        <div class="technologies">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="view-all-projects">
-                <a href="https://www.behance.net/pushpavkrishna" class="btn btn-primary">
-                    View All Projects
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </a>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Informatics Institute of Technology</h3>
-                    <span class="date">2023 - Present</span>
-                    <p>BSc (Hons) Computer Science - 1st Year Completed</p>
-                    <p>Foundation Certificate in Higher Education – IT with a Distinction Pass</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>C.M.S Ladies' College</h3>
-                    <span class="date">2008 - 2022</span>
-                    <p>Advanced Level Examination (2022)</p>
-                    <p>Ordinary Level Examination (2019)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Technical Skills</h3>
-                    <ul class="skill-list">
-                        <li>Software Development (Java, Python)</li>
-                        <li>Web Design and Development (HTML, CSS, JavaScript)</li>
-                        <li>Database Management (SQL)</li>
-                        <li>UI/UX Design (Figma, Axure)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Project Management</h3>
-                    <ul class="skill-list">
-                        <li>Agile Methodologies & Scrum</li>
-                        <li>Project Planning and Coordination</li>
-                        <li>Stakeholder Communication</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Non-Technical Skills</h3>
-                    <ul class="skill-list">
-                        <li>Strong communication skills</li>
-                        <li>Team collaboration</li>
-                        <li>Handling pressure and deadlines</li>
-                        <li>Problem-solving abilities</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <div class="contact-cards">
-                <div class="contact-card">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    <h3>Email</h3>
-                    <p>Connect with me via email</p>
-                    <a href="mailto:pushpavie.k@gmail.com" class="email-link">pushpavie.k@gmail.com</a>
-                </div>
-                <div class="contact-card">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    <h3>LinkedIn</h3>
-                    <p>Connect with me professionally</p>
-                    <a href="https://linkedin.com/in/pushpavie-krishnathasan-910b7a207" target="_blank" class="action-button linkedin-button">
+                <div class="view-all">
+                    <a href="https://www.behance.net/pushpavkrishna" class="btn btn-primary">
+                        View All Projects
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <section id="education" class="active">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Informatics Institute of Technology</h3>
+                        <span class="date">2023 - Present</span>
+                        <p>BSc (Hons) Computer Science - 1st Year Completed</p>
+                        <p>Foundation Certificate in Higher Education – IT with a Distinction Pass</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">C.M.S Ladies' College</h3>
+                        <span class="date">2008 - 2022</span>
+                        <p>Advanced Level Examination (2022)</p>
+                        <p>Ordinary Level Examination (2019)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="active">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3 class="skill-title">Technical Skills</h3>
+                        <ul class="skill-list">
+                            <li>Software Development (Java, Python)</li>
+                            <li>Web Design and Development (HTML, CSS, JavaScript)</li>
+                            <li>Database Management (SQL)</li>
+                            <li>UI/UX Design (Figma, Axure)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-title">Project Management</h3>
+                        <ul class="skill-list">
+                            <li>Agile Methodologies & Scrum</li>
+                            <li>Project Planning and Coordination</li>
+                            <li>Stakeholder Communication</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-title">Non-Technical Skills</h3>
+                        <ul class="skill-list">
+                            <li>Strong communication skills</li>
+                            <li>Team collaboration</li>
+                            <li>Handling pressure and deadlines</li>
+                            <li>Problem-solving abilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="active">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <h3 class="contact-title">Email</h3>
+                        <p>Connect with me via email</p>
+                        <a href="mailto:pushpavie.k@gmail.com" class="email-link">pushpavie.k@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                             <rect x="2" y="9" width="4" height="12"></rect>
                             <circle cx="4" cy="4" r="2"></circle>
                         </svg>
-                        View Profile
-                    </a>
-                </div>
-                <div class="contact-card">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                    </svg>
-                    <h3>Resume</h3>
-                    <p>Download my CV directly</p>
-                    <a href="https://drive.google.com/file/d/11HOamah3MYYVaGlH2M9R1hps38IZ1TDr/view?usp=sharing" target="_blank" class="action-button resume-button" onclick="trackCVDownload()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        <h3 class="contact-title">LinkedIn</h3>
+                        <p>Connect with me professionally</p>
+                        <a href="https://linkedin.com/in/pushpavie-krishnathasan-910b7a207" target="_blank" class="action-button linkedin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            View Profile
+                        </a>
+                    </div>
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
                         </svg>
-                        Download CV
-                    </a>
-                    <p id="cv-confirmation-message"></p>
+                        <h3 class="contact-title">Resume</h3>
+                        <p>Download my CV directly</p>
+                        <a href="https://drive.google.com/file/d/11HOamah3MYYVaGlH2M9R1hps38IZ1TDr/view?usp=sharing" target="_blank" class="action-button resume-button" onclick="trackCVDownload()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download CV
+                        </a>
+                        <p id="cv-confirmation-message"></p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
         <div class="footer-wave"></div>
-        <p>&copy; 2025 Pushpavie Krishnathasan. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Pushpavie Krishnathasan. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -1927,17 +2024,17 @@
             const codeParticles = document.getElementById('code-particles');
             const codeSnippets = [
                 'function hello() { }',
-                'const portfolio = new Awesome();',
+                'const portfolio = new Flex();',
                 '{ "status": "cool" }',
                 'if (visitor === impressed) { hire(); }',
-                'while(true) { beAwesome(); }',
-                '# Keep calm and code on',
+                'while(true) { made@3Am(); }',
+                '# Try to keep calm and code on',
                 'const hiring = true;',
-                '/* CSS makes me happy */',
+                '/* CSS is da best */',
                 '<div>HTML is fun</div>',
                 'git commit -m "hired!"',
                 '$ npm install success',
-                'import random; random.choice(["amazing"])',
+                'import random; random.choice(["noice"])',
                 '// TODO: Impress visitors',
                 'SELECT skills FROM portfolio WHERE awesome = TRUE;',
                 'console.log("Welcome!");',
@@ -1954,12 +2051,12 @@
                 particle.className = 'code-particle';
                 particle.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.fontSize = (Math.random() * 8 + 8) + 'px'; // Random size between 8px and 16px
-                particle.style.opacity = Math.random() * 0.5 + 0.1; // Random opacity
+                particle.style.fontSize = (Math.random() * 8 + 8) + 'px'; 
+                particle.style.opacity = Math.random() * 0.5 + 0.1; 
                 
-                const duration = Math.random() * 15 + 10; // Between 10-25 seconds
+                const duration = Math.random() * 15 + 10; 
                 particle.style.animationDuration = duration + 's';
-                particle.style.animationDelay = Math.random() * 5 + 's'; // Random delay
+                particle.style.animationDelay = Math.random() * 5 + 's'; 
                 
                 codeParticles.appendChild(particle);
             }
@@ -1975,37 +2072,21 @@
                 } else {
                     clearInterval(updatePercentage);
                 }
-            }, 40); // Slower percentage increase
+            }, 40); 
             
             // Hide loading screen after animation completes
             setTimeout(function() {
                 const loadingScreen = document.querySelector('.loading-screen');
                 loadingScreen.classList.add('hidden');
                 
-                // Start animating sections after loading screen is hidden
-                setTimeout(function() {
-                    activateSections();
-                }, 800);
-            }, 5000); // Show loading screen for 5 seconds
+                // All sections should already be active in dark mode
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    section.classList.add('active');
+                });
+            }, 4000); 
         });
         
-        // Activate sections as they come into view
-        function activateSections() {
-            const sections = document.querySelectorAll('section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        }
-        
-        // Add scroll indicator functionality
         function updateScrollIndicator() {
             const scrollIndicator = document.querySelector('.scroll-indicator');
             const totalHeight = document.body.scrollHeight - window.innerHeight;
@@ -2015,60 +2096,77 @@
         
         window.addEventListener('scroll', updateScrollIndicator);
         
-        // Light bulb toggle functionality
+        // Light bulb toggle and cord pull functionality
         const lightBulb = document.querySelector('.light-bulb');
+        const themeButton = document.querySelector('.theme-button');
         const cord = document.querySelector('.cord');
-        const cordEnd = document.querySelector('.cord-end');
         
-        // Check for saved theme preference or use device preference
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        const currentTheme = localStorage.getItem('theme');
-        
-        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-            document.body.classList.add('dark-mode');
+        // Check for saved theme
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.remove('dark-mode');
+            // Update theme button when page loads
+            setTimeout(() => {
+                updateThemeButtonAppearance();
+            }, 200);
         }
         
-        // Toggle theme when clicking on bulb
+        // Toggle theme with any of the toggle elements
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', 
+                document.body.classList.contains('dark-mode') ? 'dark' : 'light'
+            );
+            
+            // Update theme button appearance
+            updateThemeButtonAppearance();
+        }
+        
+        // Update theme button based on current mode
+        function updateThemeButtonAppearance() {
+            const themeBtn = document.querySelector('.theme-button');
+            if (themeBtn) {
+                if (document.body.classList.contains('dark-mode')) {
+                    themeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+                } else {
+                    themeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+                }
+            }
+        }
+        
         lightBulb.addEventListener('click', toggleTheme);
+        themeButton.addEventListener('click', toggleTheme);
         
-        // Mobile menu toggle functionality
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', function() {
-                document.body.classList.toggle('mobile-menu-active');
-            });
-        }
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.body.classList.remove('mobile-menu-active');
-            });
-        });
-        
-        // Mobile theme toggle
-        const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
-        if (mobileThemeToggle) {
-            mobileThemeToggle.addEventListener('click', toggleTheme);
-        }
-        
-        // Pull cord interaction
+        // Cord pull interaction
         let isDragging = false;
         let startY = 0;
-        let cordLength = 100; // Default cord length
+        let cordLength = 60; // Default cord length for desktop
+        
+        // Adjust cord length based on screen size
+        function updateCordLength() {
+            if (window.innerWidth >= 768) {
+                cordLength = 60;
+                cord.style.height = cordLength + 'px';
+            } else {
+                cordLength = 0;
+                cord.style.height = cordLength + 'px';
+            }
+        }
+        
+        // Update on page load and resize
+        window.addEventListener('load', updateCordLength);
+        window.addEventListener('resize', updateCordLength);
         
         // Touch & mouse events for cord pull
-        cord.addEventListener('mousedown', startPull);
-        cordEnd.addEventListener('mousedown', startPull);
-        document.addEventListener('mousemove', duringPull);
-        document.addEventListener('mouseup', endPull);
-        
-        // Touch events
-        cord.addEventListener('touchstart', startPullTouch, { passive: false });
-        cordEnd.addEventListener('touchstart', startPullTouch, { passive: false });
-        document.addEventListener('touchmove', duringPullTouch, { passive: false });
-        document.addEventListener('touchend', endPull);
+        if (cord) {
+            cord.addEventListener('mousedown', startPull);
+            document.addEventListener('mousemove', duringPull);
+            document.addEventListener('mouseup', endPull);
+            
+            // Touch events
+            cord.addEventListener('touchstart', startPullTouch, { passive: false });
+            document.addEventListener('touchmove', duringPullTouch, { passive: false });
+            document.addEventListener('touchend', endPull);
+        }
         
         function startPull(e) {
             isDragging = true;
@@ -2136,10 +2234,19 @@
             }, 500);
         }
         
-        function toggleTheme() {
-            const isDarkMode = document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-        }
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            document.body.classList.toggle('mobile-menu-active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.body.classList.remove('mobile-menu-active');
+            });
+        });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2151,25 +2258,10 @@
                 
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-        
-        // Add hover effect to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-12px) scale(1.03)';
-                this.style.boxShadow = document.body.classList.contains('dark-mode') 
-                    ? '0 20px 40px rgba(0, 0, 0, 0.3)' 
-                    : '0 20px 40px rgba(0, 0, 0, 0.1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
             });
         });
         
@@ -2185,6 +2277,52 @@
                 message.style.display = "none";
             }, 5000);
         }
+        
+        // Ensures on slower devices the theme-button is visible on mobile
+        function checkMobileView() {
+            const themeButton = document.querySelector('.theme-button');
+            const lightBulb = document.querySelector('.light-bulb');
+            
+            if (!themeButton || !lightBulb) return;
+            
+            if (window.innerWidth <= 575) {
+                themeButton.style.opacity = "1";
+                themeButton.style.pointerEvents = "all";
+                lightBulb.style.display = "none";
+            } else {
+                themeButton.style.opacity = "";
+                themeButton.style.pointerEvents = "";
+                lightBulb.style.display = "";
+            }
+            
+            // Update theme button appearance
+            updateThemeButtonAppearance();
+        }
+        
+        window.addEventListener('load', checkMobileView);
+        window.addEventListener('resize', checkMobileView);
+        
+        // Name container fix for smaller screens
+        function adjustNameContainer() {
+            const nameLines = document.querySelectorAll('.name-line');
+            
+            if (window.innerWidth <= 360) {
+                nameLines.forEach(line => {
+                    line.style.wordBreak = 'break-word';
+                    line.style.overflowWrap = 'break-word';
+                    line.style.lineHeight = '1.2';
+                });
+            } else {
+                nameLines.forEach(line => {
+                    line.style.wordBreak = '';
+                    line.style.overflowWrap = '';
+                    line.style.lineHeight = '';
+                });
+            }
+        }
+        
+        window.addEventListener('load', adjustNameContainer);
+        window.addEventListener('resize', adjustNameContainer);
     </script>
 </body>
 </html>
