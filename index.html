@@ -1137,15 +1137,15 @@
         /* ===== SKILLS SECTION ===== */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 1.5rem; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2rem; 
             margin-top: 1.5rem; 
         }
 
         .skill-category {
             background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 1.5rem; 
+            padding: 2rem; 
             box-shadow: var(--card-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid var(--card-border);
@@ -1173,10 +1173,6 @@
             background-color: var(--lavender);
         }
         
-        .skill-category:nth-child(3)::before {
-            background-color: var(--light-blue);
-        }
-        
         .skill-category:hover::before {
             opacity: 1;
         }
@@ -1191,8 +1187,8 @@
         }
 
         .skill-title {
-            margin-bottom: 1.25rem; 
-            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-size: 1.4rem; 
         }
         
         .skill-category:nth-child(1) .skill-title {
@@ -1208,25 +1204,19 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        .skill-category:nth-child(3) .skill-title {
-            background: linear-gradient(90deg, var(--blue-dark), var(--sage-dark));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
 
         .skill-list {
             list-style: none;
         }
 
         .skill-list li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             padding-left: 1.5rem;
             position: relative;
             transition: transform 0.3s ease;
+            font-size: 1rem;
         }
         
         .skill-list li:hover {
@@ -1253,11 +1243,6 @@
         .skill-category:nth-child(2) .skill-list li::before {
             background-color: var(--lavender);
             box-shadow: 0 0 0 3px rgba(229, 187, 238, 0.2);
-        }
-        
-        .skill-category:nth-child(3) .skill-list li::before {
-            background-color: var(--light-blue);
-            box-shadow: 0 0 0 3px rgba(187, 203, 238, 0.2);
         }
         
         .skill-list li:hover::before {
@@ -1568,7 +1553,11 @@
         }
 
         @media (max-width: 992px) {
-            .projects-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 1.5rem;
+            }
+            
             .skills-container,
             .contact-cards {
                 grid-template-columns: repeat(2, 1fr); 
@@ -1963,23 +1952,18 @@
                             <li>Web Design and Development (HTML, CSS, JavaScript)</li>
                             <li>Database Management (SQL)</li>
                             <li>UI/UX Design (Figma, Axure)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="skill-title">Project Management</h3>
-                        <ul class="skill-list">
-                            <li>Agile Methodologies & Scrum</li>
-                            <li>Project Planning and Coordination</li>
-                            <li>Stakeholder Communication</li>
+                            <li>Version Control (Git)</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h3 class="skill-title">Non-Technical Skills</h3>
                         <ul class="skill-list">
-                            <li>Strong communication skills</li>
-                            <li>Team collaboration</li>
-                            <li>Handling pressure and deadlines</li>
-                            <li>Problem-solving abilities</li>
+                            <li>Strong communication and presentation skills</li>
+                            <li>Team collaboration and leadership</li>
+                            <li>Problem-solving and creative thinking</li>
+                            <li>Time management and organization</li>
+                            <li>Adaptability, continuous learning, and attention to detail</li>
+
                         </ul>
                     </div>
                 </div>
